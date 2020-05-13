@@ -124,7 +124,7 @@ create table TarjetaRequerim(
 	REFERENCES Taxonomia(nivel_tax)
 )
 
-create table VerbosTarjet_a(
+create table VerbosTarjeta(
 	id_tarjetaRequerim INT NOT NULL,
 	id_verbo INT NOT NULL,
 	
@@ -135,7 +135,7 @@ create table VerbosTarjet_a(
 	REFERENCES Verbotax(id_verbo)
 )
 
-create table Tare_a(
+create table Tarea(
 	id_tarjetaRequerim INT NOT NULL,
 	descripcion VARCHAR(200) NOT NULL,
 	
