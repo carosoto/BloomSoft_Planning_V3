@@ -26,5 +26,18 @@ namespace BloomSoft_V2.Controllers
 
             return View();
         }
+
+        [Authorize]
+        public ActionResult Menu()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult GameBoard()
+        {
+            return View();
+        }
     }
+
 }
