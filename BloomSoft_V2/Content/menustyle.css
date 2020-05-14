@@ -21,3 +21,14 @@
 .well {
     background-color: white;
 }
+
+.imagen a{
+    
+    display: block;
+    background: url("../Imagenes/ConocimientoHov.png");
+}
+
+.imagen a:hover img {
+    visibility:hidden;
+   
+}

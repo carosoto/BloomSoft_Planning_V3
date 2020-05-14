@@ -33,7 +33,7 @@ namespace BloomSoft_V2.Controllers
             return View();
         }
 
-        [Authorize]
+        //[Authorize]
         public ActionResult GameBoard()
         {
             return View();
