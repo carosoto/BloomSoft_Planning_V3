@@ -70,6 +70,16 @@
             padding: 15px 22px;
             margin-right: 180px;
         }
+
+        div.my_image {
+            width: 50px;
+            height: 50px;
+            background-image: url('../Imagenes/Conocimiento.png');
+        }
+
+            div.my_image:hover {
+                background-image: url('../Imagenes/ConocimientoHov.png');
+            }
     </style>
 
 
@@ -257,34 +267,36 @@
                     });
                 });
 
+               
 
             </script>
 
             @*<div class="row">
-                    <div class="column">
-                        <div class="card">
-                            <img src="~/Imagenes/Analisis.png" class="card-img-top" alt="Analisis">
-                        </div>
-                    </div>
+            <div class="column">
+                <div class="card">
+                    <img src="~/Imagenes/Analisis.png" class="card-img-top" alt="Analisis">
+                </div>
+            </div>
 
-                    <div class="column">
-                        <div class="card">
-                            <img src="~/Imagenes/Comprension.png" class="card-img-top" alt="Comprension">
-                        </div>
-                    </div>
+            <div class="column">
+                <div class="card">
+                    <img src="~/Imagenes/Comprension.png" class="card-img-top" alt="Comprension">
+                </div>
+            </div>
 
-                    <div class="column">
-                        <div class="card">
-                            <img src="~/Imagenes/Conocimiento.png" class="card-img-top" alt="Conocimiento">
-                        </div>
-                    </div>
-                </div>*@
+            <div class="column">
+                <div class="card">
+                    <img src="~/Imagenes/Conocimiento.png" class="card-img-top" alt="Conocimiento">
+                </div>
+            </div>
+        </div>*@
+
+            
 
             <div style="margin-top:5%">
-                <div style="float:right; margin-right:5%">
-                    <a href="#" class="imagen">
-                        <img src="~/Imagenes/Conocimiento.png" alt="Conocimiento">                       
-                    </a>
+                <a><div class="my_image"></div></a>
+                <div style="float:right; margin-right:15%">
+                    <a><div class="my_image"></div></a>
                 </div>
                 <div style="float:right; margin-right:5%">
                     <img src="~/Imagenes/Comprension.png" class="card-img-top" alt="Comprension">

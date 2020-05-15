@@ -22,13 +22,16 @@
     background-color: white;
 }
 
-.imagen a{
-    
+.imagen a {
     display: block;
-    background: url("../Imagenes/ConocimientoHov.png");
+    background: url('../Imagenes/ConocimientoHov.png');
 }
 
 .imagen a:hover img {
     visibility:hidden;
    
+}
+
+.RightArrow:hover {
+    background-image: url('../Imagenes/ConocimientoHov.png') !important;
 }
