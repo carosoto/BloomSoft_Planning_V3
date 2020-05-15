@@ -144,6 +144,45 @@
             background-image: url('../Imagenes/SintesisHov.png');
             background-repeat: no-repeat;
         }
+
+        div.edit {
+            width: 200px;
+            height: 100px;
+            background-image: url('../Imagenes/boton_tarjeta.png');
+            background-repeat: no-repeat;
+            background-size:180px 140px;
+        }
+
+            div.edit:hover {
+                background-image: url('../Imagenes/boton tarjetaHov.png');
+                background-repeat: no-repeat;
+            }
+
+        div.edit {
+            width: 200px;
+            height: 150px;
+            background-image: url('../Imagenes/boton_tarjeta.png');
+            background-repeat: no-repeat;
+            background-size: 180px 140px;
+        }
+
+            div.edit:hover {
+                background-image: url('../Imagenes/boton tarjetaHov.png');
+                background-repeat: no-repeat;
+            }
+
+        div.lanzar {
+            width: 100px;
+            height: 150px;
+            background-image: url('../Imagenes/carta.jpg');
+            background-repeat: no-repeat;
+            background-size: 90px 140px;
+        }
+
+            div.lanzar:hover {
+                background-image: url('../Imagenes/cartaHov.jpg');
+                background-repeat: no-repeat;
+            }
     </style>
 
 
@@ -331,34 +370,34 @@
                     });
                 });
 
-               
+
 
             </script>
 
             @*<div class="row">
-            <div class="column">
-                <div class="card">
-                    <img src="~/Imagenes/Analisis.png" class="card-img-top" alt="Analisis">
-                </div>
-            </div>
+                    <div class="column">
+                        <div class="card">
+                            <img src="~/Imagenes/Analisis.png" class="card-img-top" alt="Analisis">
+                        </div>
+                    </div>
 
-            <div class="column">
-                <div class="card">
-                    <img src="~/Imagenes/Comprension.png" class="card-img-top" alt="Comprension">
-                </div>
-            </div>
+                    <div class="column">
+                        <div class="card">
+                            <img src="~/Imagenes/Comprension.png" class="card-img-top" alt="Comprension">
+                        </div>
+                    </div>
 
-            <div class="column">
-                <div class="card">
-                    <img src="~/Imagenes/Conocimiento.png" class="card-img-top" alt="Conocimiento">
-                </div>
-            </div>
-        </div>*@
+                    <div class="column">
+                        <div class="card">
+                            <img src="~/Imagenes/Conocimiento.png" class="card-img-top" alt="Conocimiento">
+                        </div>
+                    </div>
+                </div>*@
 
-            
+
 
             <div style="margin-top:5%">
-               
+
                 <div style="float:right; margin-right:15%">
                     <a><div class="conoc"></div></a>
                 </div>
@@ -380,12 +419,95 @@
                 <div style="float:right; margin-right:5%">
                     <a><div class="sint"></div></a>
                 </div>
+
             </div>
+            
+            <div style="margin-top:-93px; float:left; margin-left:80%">
+                <a href="#cartaModal"><div class="edit"></div></a>
+                <div class="modal fade" tabindex="-1" id="cartaModal" data-keyboard="false" data-backdrop="static">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">
+                                    ×
+                                </button>
+                                <h4 class="modal-title">BloomSoft Planning Card</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+
+                                    <div class="form-group">
+                                        <table class="col-md-12 col-sm-12 col-xs-12">
+                                            <tr>
+                                                <td>
+                                                    <input class="form-control min" type="text" placeholder="FR#" id="inputFR">
+
+                                                </td>
+
+                                                <td>
+                                                    <input class="form-control max" type="text" placeholder="Verbos de la taxonomía de BloomSoft" id="inputVR">
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </div>
+
+                                    <hr>
+
+                                    <div class="form-group">
+                                        <table class="col-md-12 col-sm-12 col-xs-12">
+                                            <tr>
+                                                <td>
+                                                    <input class="form-control min" type="text" placeholder="PRFR#" id="inputPRFR">
+
+                                                </td>
+
+                                                <td>
+                                                    <input class="form-control max" type="text" placeholder="Descripcion de los requerimientos funcionales" id="inputDS" width="80">
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </div>
+
+                                    <hr>
+
+                                    <div class="form-group">
+                                        <textarea name="task" rows="10" cols="30" placeholder="Tareas por hacer"></textarea>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group">
+                                        <select id="Level" name="BL">
+                                            <option disabled selected>Nivel de BloomSoft:</option>
+                                            <option value="1">Evaluation/Deployment</option>
+                                            <option value="2">Application/Testing</option>
+                                            <option value="3">Synthesis/Development</option>
+                                            <option value="4">Analysis/Design</option>
+                                            <option value="5">Comprehension/Anaysis&amp;Requirements</option>
+                                            <option value="6">Knowledge/Preanalysis&amp;Planning</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary button button4">Lanzar carta</button>
+                                <button type="button" id="btnHideModal" class="btn btn-primary button button4">
+                                    Cancelar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+                <div style="margin-top:-153px; float:left; margin-left:97%">
+                    <a href="#"><div class="lanzar"></div></a>
+                </div>
+
+          
 
         </div>
     </div>
-
-
 
 </body>
 </html>
