@@ -1,0 +1,42 @@
+﻿@model BloomSoft_V2.Models.PartidaJugador
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PartidaJugador</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUsers.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUsers.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartidaJuego.id_usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartidaJuego.id_usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.puntos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.puntos)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_partidaJugador }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
