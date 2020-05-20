@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BloomSoft_V2.Models;
+using Microsoft.AspNet.Identity;
 
 namespace BloomSoft_V2.Controllers
 {
@@ -39,8 +40,12 @@ namespace BloomSoft_V2.Controllers
         // GET: PartidaJugador/Create
         public ActionResult Create()
         {
-            ViewBag.id_usuario = new SelectList(db.AspNetUsers, "Id", "Email");
-            ViewBag.id_partidaJuego = new SelectList(db.PartidaJuego, "id_partidaJuego", "id_usuario");
+            var currentUser = User.Identity.GetUserId();
+            var usuario = db.AspNetUsers.ToList().Where(d => d.Id == currentUser);
+            ViewBag.id_usuario = new SelectList(usuario, "Id", "Email");
+            var partidajuego = db.PartidaJuego.ToList().Where(d => d.id_usuario == currentUser);
+            ViewBag.id_partidaJuego = new SelectList(partidajuego, "id_partidaJuego", "id_usuario");
+            ViewBag.puntos = 0;
             return View();
         }
 
@@ -55,11 +60,15 @@ namespace BloomSoft_V2.Controllers
             {
                 db.PartidaJugador.Add(partidaJugador);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("GameBoard", "Home");
             }
 
-            ViewBag.id_usuario = new SelectList(db.AspNetUsers, "Id", "Email", partidaJugador.id_usuario);
-            ViewBag.id_partidaJuego = new SelectList(db.PartidaJuego, "id_partidaJuego", "id_usuario", partidaJugador.id_partidaJuego);
+            var currentUser = User.Identity.GetUserId();
+            var usuario = db.AspNetUsers.ToList().Where(d => d.Id == currentUser);
+            ViewBag.id_usuario = new SelectList(usuario, "Id", "Email", partidaJugador.id_usuario);
+            var partidajuego = db.PartidaJuego.ToList().Where(d => d.id_usuario == currentUser);
+            ViewBag.id_partidaJuego = new SelectList(partidajuego, "id_partidaJuego", "id_usuario", partidaJugador.id_partidaJuego);
+            ViewBag.puntos = 0;
             return View(partidaJugador);
         }
 

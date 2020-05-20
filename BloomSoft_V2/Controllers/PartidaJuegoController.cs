@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BloomSoft_V2.Models;
+using Microsoft.AspNet.Identity;
 
 namespace BloomSoft_V2.Controllers
 {
@@ -39,8 +40,11 @@ namespace BloomSoft_V2.Controllers
         // GET: PartidaJuego/Create
         public ActionResult Create()
         {
-            ViewBag.id_usuario = new SelectList(db.AspNetUsers, "Id", "Email");
-            ViewBag.id_proyecto = new SelectList(db.Proyecto, "id_proyecto", "nombre");
+            var currentUser = User.Identity.GetUserId();
+            var usuario = db.AspNetUsers.ToList().Where(d => d.Id == currentUser);
+            ViewBag.id_usuario = new SelectList(usuario, "Id", "Email");
+            var proy = db.Proyecto.ToList().Where(d => d.id_usuario == currentUser);
+            ViewBag.id_proyecto = new SelectList(proy, "id_proyecto", "nombre");
             return View();
         }
 
@@ -55,7 +59,7 @@ namespace BloomSoft_V2.Controllers
             {
                 db.PartidaJuego.Add(partidaJuego);
                 db.SaveChanges();
-                return RedirectToAction("GameBoard","Home");
+                return RedirectToAction("Create", "PartidaJugador");
             }
 
             ViewBag.id_usuario = new SelectList(db.AspNetUsers, "Id", "Email", partidaJuego.id_usuario);

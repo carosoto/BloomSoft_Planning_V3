@@ -20,10 +20,6 @@ namespace BloomSoft_V2.Models
 
         public int nivel_tax { get; set; }
 
-        [Required]
-        [StringLength(100)]
-        public string categoria { get; set; }
-
         public virtual Taxonomia Taxonomia { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

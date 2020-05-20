@@ -109,9 +109,7 @@ namespace BloomSoft_V2.Models
                 .WithRequired(e => e.Proyecto)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Requerimiento>()
-                .Property(e => e.categoria)
-                .IsUnicode(false);
+            
 
             modelBuilder.Entity<Requerimiento>()
                 .HasMany(e => e.TarjetaRequerim)
@@ -142,9 +140,7 @@ namespace BloomSoft_V2.Models
                 .WithRequired(e => e.Taxonomia)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Verbotax>()
-                .Property(e => e.categoria)
-                .IsUnicode(false);
+            
 
             modelBuilder.Entity<Pago>()
                 .Property(e => e.monto)

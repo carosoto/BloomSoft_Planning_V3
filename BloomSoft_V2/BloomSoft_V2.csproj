@@ -188,7 +188,7 @@
     <Compile Include="Controllers\PartidaJuegoController.cs" />
     <Compile Include="Controllers\PartidaJugadorController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
-    <Compile Include="Controllers\TarjetaRequerimController.cs" />
+    <Compile Include="Controllers\TarjetaRequerimsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -293,11 +293,11 @@
     <Content Include="Views\PartidaJugador\Details.cshtml" />
     <Content Include="Views\PartidaJugador\Edit.cshtml" />
     <Content Include="Views\PartidaJugador\Index.cshtml" />
-    <Content Include="Views\TarjetaRequerim\Create.cshtml" />
-    <Content Include="Views\TarjetaRequerim\Delete.cshtml" />
-    <Content Include="Views\TarjetaRequerim\Details.cshtml" />
-    <Content Include="Views\TarjetaRequerim\Edit.cshtml" />
-    <Content Include="Views\TarjetaRequerim\Index.cshtml" />
+    <Content Include="Views\TarjetaRequerims\Create.cshtml" />
+    <Content Include="Views\TarjetaRequerims\Delete.cshtml" />
+    <Content Include="Views\TarjetaRequerims\Details.cshtml" />
+    <Content Include="Views\TarjetaRequerims\Edit.cshtml" />
+    <Content Include="Views\TarjetaRequerims\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
