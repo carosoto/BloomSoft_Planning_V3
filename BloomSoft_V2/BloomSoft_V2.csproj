@@ -185,12 +185,34 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PartidaJuegoController.cs" />
+    <Compile Include="Controllers\PartidaJugadorController.cs" />
+    <Compile Include="Controllers\ProyectoController.cs" />
+    <Compile Include="Controllers\TarjetaRequerimsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AspNetRoles.cs" />
+    <Compile Include="Models\AspNetUserClaims.cs" />
+    <Compile Include="Models\AspNetUserLogins.cs" />
+    <Compile Include="Models\AspNetUsers.cs" />
+    <Compile Include="Models\BSModel.cs" />
+    <Compile Include="Models\C__MigrationHistory.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Licencia.cs" />
+    <Compile Include="Models\LicenciaUsuario.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Pago.cs" />
+    <Compile Include="Models\PartidaJuego.cs" />
+    <Compile Include="Models\PartidaJugador.cs" />
+    <Compile Include="Models\ProjectIds.cs" />
+    <Compile Include="Models\Proyecto.cs" />
+    <Compile Include="Models\Requerimiento.cs" />
+    <Compile Include="Models\Tarea.cs" />
+    <Compile Include="Models\TarjetaRequerim.cs" />
+    <Compile Include="Models\Taxonomia.cs" />
+    <Compile Include="Models\Verbotax.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -256,6 +278,26 @@
     <Content Include="Views\Home\Menu.cshtml" />
     <Content Include="Views\Home\GameBoard.cshtml" />
     <Content Include="Views\Home\Premium.cshtml" />
+    <Content Include="Views\Proyecto\Create.cshtml" />
+    <Content Include="Views\Proyecto\Delete.cshtml" />
+    <Content Include="Views\Proyecto\Details.cshtml" />
+    <Content Include="Views\Proyecto\Edit.cshtml" />
+    <Content Include="Views\Proyecto\Index.cshtml" />
+    <Content Include="Views\PartidaJuego\Create.cshtml" />
+    <Content Include="Views\PartidaJuego\Delete.cshtml" />
+    <Content Include="Views\PartidaJuego\Details.cshtml" />
+    <Content Include="Views\PartidaJuego\Edit.cshtml" />
+    <Content Include="Views\PartidaJuego\Index.cshtml" />
+    <Content Include="Views\PartidaJugador\Create.cshtml" />
+    <Content Include="Views\PartidaJugador\Delete.cshtml" />
+    <Content Include="Views\PartidaJugador\Details.cshtml" />
+    <Content Include="Views\PartidaJugador\Edit.cshtml" />
+    <Content Include="Views\PartidaJugador\Index.cshtml" />
+    <Content Include="Views\TarjetaRequerims\Create.cshtml" />
+    <Content Include="Views\TarjetaRequerims\Delete.cshtml" />
+    <Content Include="Views\TarjetaRequerims\Details.cshtml" />
+    <Content Include="Views\TarjetaRequerims\Edit.cshtml" />
+    <Content Include="Views\TarjetaRequerims\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

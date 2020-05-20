@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BloomSoft_V2.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,7 @@ namespace BloomSoft_V2.Controllers
 {
     public class HomeController : Controller
     {
+        private BSModel db = new BSModel();
         public ActionResult Index()
         {
             return View();
@@ -30,11 +32,34 @@ namespace BloomSoft_V2.Controllers
             return View();
         }
 
-        [Authorize]
         public ActionResult Menu()
         {
+            /*ViewBag.id_usuario = new SelectList(db.AspNetUsers, "Id", "Email");
+          
+            ViewBag.id_proyecto = new SelectList(db.Proyecto, "id_proyecto", "nombre");
+           
+            ViewBag.id_partidaJuego = new SelectList(db.PartidaJuego, "id_partidaJuego", "id_usuario");*/
             return View();
         }
+
+        /*[Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Menu([Bind(Include = "id_proyecto,nombre,id_usuario,estado,interaciones")] Proyecto proyecto)
+        {
+            if (ModelState.IsValid)
+            {
+                
+                db.Proyecto.Add(proyecto);
+                db.SaveChanges();
+                return RedirectToAction("Create","PartidaJugadorController");
+            }
+
+            ViewBag.id_usuario = new SelectList(db.AspNetUsers, "Id", "Email", proyecto.id_usuario);
+            return View(proyecto);
+        }*/
+
+       
 
         //[Authorize]
         public ActionResult GameBoard()

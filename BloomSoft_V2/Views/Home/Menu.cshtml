@@ -1,4 +1,5 @@
-﻿@{
+﻿@model BloomSoft_V2.Models.Proyecto
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -19,6 +20,20 @@
 </head>
 <body>
 
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('a[href$="#cartaModal"]').on("click", function () {
+                $("#cartaModal").modal('show');
+            });
+
+            $("#btnHideModal").click(function () {
+                $("#cartaModal").modal('hide');
+            });
+        });
+
+    </script>
+
     <div class="container">
         <div class="row">
             <div class="col-sm-3 col-md-3">
@@ -37,7 +52,7 @@
                                 <table class="table">
                                     <tr>
                                         <td>
-                                            <span class="glyphicon glyphicon-pencil text-primary"></span><a href="#">Nuevo Equipo</a>
+                                            <span class="glyphicon glyphicon-pencil text-primary"></span><a href="@Url.Action("Create", "Proyecto")">Nuevo Equipo</a>                                           
                                         </td>
                                     </tr>
                                     <tr>

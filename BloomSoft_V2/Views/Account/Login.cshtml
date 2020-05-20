@@ -5,8 +5,8 @@
 }
 <div class="sidenav">
     <div class="login-main-text">
-        <h2>Application<br> Login Page</h2>
-        <p>Login or register from here to access.</p>
+        <h2>BloomSoft Planning<br></h2>
+        <p>Inicia sesión desde aqui para lograr un nuevo proyecto.</p>
     </div>
 </div>
 <h2>@ViewBag.Title.</h2>
@@ -15,10 +15,10 @@
         <section id="loginForm">
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
-              @Html.AntiForgeryToken()         
+                @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group marginleft">
-                    
+
                     @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
                     <div class="col-md-8 marginleft">
                         @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
@@ -45,11 +45,17 @@
                         <input type="submit" value="Iniciar sesión" class="btn btn-default" />
                     </div>
                 </div>
-               
+
+                <div class="form-group marginleft">
+                    <div class="col-md-offset-4 col-md-8 marginleft3">
+                        No estas registrado has
+                        <a>@Html.ActionLink("click aqui.", "Register", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</a>
+                    </div>
+                </div>
                 @* Habilite esta opción después de habilitar la confirmación de la cuenta para la función de restablecimiento de contraseña
-                    <p>
-                        @Html.ActionLink("¿Ha olvidado su contraseña?", "ForgotPassword")
-                    </p>*@
+            <p>
+                @Html.ActionLink("¿Ha olvidado su contraseña?", "ForgotPassword")
+            </p>*@
             }
         </section>
     </div>
