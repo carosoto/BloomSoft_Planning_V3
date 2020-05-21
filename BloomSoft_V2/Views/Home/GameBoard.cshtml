@@ -1,6 +1,11 @@
-﻿@{
+﻿@model IEnumerable<BloomSoft_V2.Models.AspNetUsers>
+@{
+
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.title = "PartidaJuego";
 }
+
+
 
 <!DOCTYPE html>
 
@@ -72,17 +77,17 @@
         }
 
         div.conoc {
-            margin-right:80px;
+            margin-right: 80px;
             width: 150px;
             height: 190px;
             background-image: url('../Imagenes/Conocimiento.png');
             background-repeat: no-repeat;
         }
 
-        div.conoc:hover {
-            background-image: url('../Imagenes/ConocimientoHov.png');
-            background-repeat: no-repeat;
-        }
+            div.conoc:hover {
+                background-image: url('../Imagenes/ConocimientoHov.png');
+                background-repeat: no-repeat;
+            }
 
         div.compr {
             width: 190px;
@@ -109,17 +114,17 @@
             }
 
         div.eval {
-            margin-right:180px;
+            margin-right: 180px;
             width: 150px;
             height: 190px;
             background-image: url('../Imagenes/Evaluacion.png');
             background-repeat: no-repeat;
         }
 
-        div.eval:hover {
-            background-image: url('../Imagenes/EvaluacionHov.png');
-            background-repeat: no-repeat;
-        }
+            div.eval:hover {
+                background-image: url('../Imagenes/EvaluacionHov.png');
+                background-repeat: no-repeat;
+            }
 
         div.aplic {
             width: 150px;
@@ -128,10 +133,10 @@
             background-repeat: no-repeat;
         }
 
-        div.aplic:hover {
-            background-image: url('../Imagenes/AplicacionHov.png');
-            background-repeat: no-repeat;
-        }
+            div.aplic:hover {
+                background-image: url('../Imagenes/AplicacionHov.png');
+                background-repeat: no-repeat;
+            }
 
         div.sint {
             width: 150px;
@@ -140,17 +145,17 @@
             background-repeat: no-repeat;
         }
 
-        div.sint:hover {
-            background-image: url('../Imagenes/SintesisHov.png');
-            background-repeat: no-repeat;
-        }
+            div.sint:hover {
+                background-image: url('../Imagenes/SintesisHov.png');
+                background-repeat: no-repeat;
+            }
 
         div.edit {
             width: 200px;
             height: 100px;
             background-image: url('../Imagenes/boton_tarjeta.png');
             background-repeat: no-repeat;
-            background-size:180px 140px;
+            background-size: 180px 140px;
         }
 
             div.edit:hover {
@@ -207,10 +212,10 @@
                                     <tr>
                                         <td>
                                             <a href="#">Agregar Requerimientos</a>
-                                            
+
                                         </td>
 
-                                    </tr>                                   
+                                    </tr>
                                 </table>
                             </div>
                         </div>
@@ -254,16 +259,20 @@
                         </div>
                         <div id="collapseTwo" class="panel-collapse collapse in">
                             <div class="panel-body">
-                                <div>
-                                    <asp:GridView ID="GridView1" HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White"
-                                                  runat="server" AutoGenerateColumns="false">
-                                        <Columns>
-                                            hola
-                                            <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="150" />
-                                            
-                                        </Columns>
-                                    </asp:GridView>
-                                </div>
+
+
+                                @foreach (var item in Model)
+                                {
+                                    foreach (var item2 in item.PartidaJuego)
+                                    {
+                                        @Html.DisplayFor(modelItem => item2.id_usuario)
+                                    }
+                                }
+
+                                @foreach (var item in Model)
+                                {
+                                    @Html.DisplayFor(modelItem => item.UserName)
+                                }
                             </div>
                         </div>
                     </div>
@@ -310,24 +319,24 @@
             </script>
 
             @*<div class="row">
-            <div class="column">
-                <div class="card">
-                    <img src="~/Imagenes/Analisis.png" class="card-img-top" alt="Analisis">
-                </div>
-            </div>
+                    <div class="column">
+                        <div class="card">
+                            <img src="~/Imagenes/Analisis.png" class="card-img-top" alt="Analisis">
+                        </div>
+                    </div>
 
-            <div class="column">
-                <div class="card">
-                    <img src="~/Imagenes/Comprension.png" class="card-img-top" alt="Comprension">
-                </div>
-            </div>
+                    <div class="column">
+                        <div class="card">
+                            <img src="~/Imagenes/Comprension.png" class="card-img-top" alt="Comprension">
+                        </div>
+                    </div>
 
-            <div class="column">
-                <div class="card">
-                    <img src="~/Imagenes/Conocimiento.png" class="card-img-top" alt="Conocimiento">
-                </div>
-            </div>
-        </div>*@
+                    <div class="column">
+                        <div class="card">
+                            <img src="~/Imagenes/Conocimiento.png" class="card-img-top" alt="Conocimiento">
+                        </div>
+                    </div>
+                </div>*@
 
 
 
@@ -356,8 +365,8 @@
                 </div>
 
             </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
+            <<<<<<< HEAD
+            <<<<<<< HEAD
 
             <div style="margin-top:-93px; float:left; margin-left:80%">
                 <a href="#cartaModal"><div class="edit"></div></a>
@@ -435,36 +444,36 @@
                         </div>
                     </div>
                 </div>
-=======
-           
-            <div style="margin-top:-153px; float:left; margin-left:97%">
-                <a href="@Url.Action("Index", "TarjetaRequerims")"><div class="edit">editar</div></a>
->>>>>>> e5277fc4d18f3b691cb7d5c99a8dc28ffe06757b
+                =======
 
-                <a href="#"><div class="lanzar"></div></a>
-            </div>
-<<<<<<< HEAD
-            <div style="margin-top:-153px; float:left; margin-left:97%">
-                <a href="#"><div class="lanzar"></div></a>
-            </div>
-            
-            <div style="margin-top:30px; float:left; margin-left:97%">
-                hola aqui estoy
-            </div>
-=======
->>>>>>> e5277fc4d18f3b691cb7d5c99a8dc28ffe06757b
-=======
-           
-            <div style="margin-top:-153px; float:left; margin-left:97%">
-                <a href="@Url.Action("Index", "TarjetaRequerims")"><div class="edit">editar</div></a>
+                <div style="margin-top:-153px; float:left; margin-left:97%">
+                    <a href="@Url.Action("Index", "TarjetaRequerims")"><div class="edit">editar</div></a>
+                    >>>>>>> e5277fc4d18f3b691cb7d5c99a8dc28ffe06757b
 
-                <a href="#"><div class="lanzar"></div></a>
+                    <a href="#"><div class="lanzar"></div></a>
+                </div>
+                <<<<<<< HEAD
+                <div style="margin-top:-153px; float:left; margin-left:97%">
+                    <a href="#"><div class="lanzar"></div></a>
+                </div>
+
+                <div style="margin-top:30px; float:left; margin-left:97%">
+                    hola aqui estoy
+                </div>
+                =======
+                >>>>>>> e5277fc4d18f3b691cb7d5c99a8dc28ffe06757b
+                =======
+
+                <div style="margin-top:-153px; float:left; margin-left:97%">
+                    <a href="@Url.Action("Index", "TarjetaRequerims")"><div class="edit">editar</div></a>
+
+                    <a href="#"><div class="lanzar"></div></a>
+                </div>
+                >>>>>>> e5277fc4d18f3b691cb7d5c99a8dc28ffe06757b
+
+
             </div>
->>>>>>> e5277fc4d18f3b691cb7d5c99a8dc28ffe06757b
-
-
         </div>
-    </div>
 
 </body>
 </html>

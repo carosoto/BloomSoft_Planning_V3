@@ -1,9 +1,13 @@
-﻿using BloomSoft_V2.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using BloomSoft_V2.Models;
+using Microsoft.AspNet.Identity;
 
 namespace BloomSoft_V2.Controllers
 {
@@ -64,7 +68,15 @@ namespace BloomSoft_V2.Controllers
         //[Authorize]
         public ActionResult GameBoard()
         {
-            return View();
+            var currentUser = User.Identity.GetUserId();
+            String Prueba = "Mario";
+            var usuario = db.AspNetUsers.ToList().Where(d => d.Id == currentUser);
+            if (usuario == null)
+            {
+
+                return View(Prueba);
+            }
+            return View(usuario);
         }
     }
 
