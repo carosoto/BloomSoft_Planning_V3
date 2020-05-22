@@ -14,7 +14,7 @@ namespace BloomSoft_V2.Controllers
     public class PartidaJuegoController : Controller
     {
         private BSModel db = new BSModel();
-
+    
         // GET: PartidaJuego
         public ActionResult Index()
         {

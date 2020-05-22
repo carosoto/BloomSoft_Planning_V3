@@ -1,6 +1,12 @@
-﻿@model IEnumerable<BloomSoft_V2.Models.AspNetUsers>
-@{
+﻿@model IEnumerable<BloomSoft_V2.Models.PartidaJuego>
 
+@{
+    
+    var ultimo = 0;
+    foreach (var item in Model)
+    {
+        ultimo = item.id_partidaJuego;
+    }
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.title = "PartidaJuego";
 }
@@ -263,16 +269,13 @@
 
                                 @foreach (var item in Model)
                                 {
-                                    foreach (var item2 in item.PartidaJuego)
+                                    if (ultimo == item.id_partidaJuego)
                                     {
-                                        @Html.DisplayFor(modelItem => item2.id_usuario)
+                                        @Html.DisplayFor(modelItem => item.AspNetUsers.UserName)
                                     }
+
                                 }
 
-                                @foreach (var item in Model)
-                                {
-                                    @Html.DisplayFor(modelItem => item.UserName)
-                                }
                             </div>
                         </div>
                     </div>
@@ -319,24 +322,24 @@
             </script>
 
             @*<div class="row">
-                    <div class="column">
-                        <div class="card">
-                            <img src="~/Imagenes/Analisis.png" class="card-img-top" alt="Analisis">
-                        </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="~/Imagenes/Analisis.png" class="card-img-top" alt="Analisis">
                     </div>
+                </div>
 
-                    <div class="column">
-                        <div class="card">
-                            <img src="~/Imagenes/Comprension.png" class="card-img-top" alt="Comprension">
-                        </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="~/Imagenes/Comprension.png" class="card-img-top" alt="Comprension">
                     </div>
+                </div>
 
-                    <div class="column">
-                        <div class="card">
-                            <img src="~/Imagenes/Conocimiento.png" class="card-img-top" alt="Conocimiento">
-                        </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="~/Imagenes/Conocimiento.png" class="card-img-top" alt="Conocimiento">
                     </div>
-                </div>*@
+                </div>
+            </div>*@
 
 
 
@@ -474,7 +477,7 @@
 
             </div>
         </div>
-
+    </div>
 </body>
 </html>
 

@@ -68,13 +68,13 @@ namespace BloomSoft_V2.Controllers
         //[Authorize]
         public ActionResult GameBoard()
         {
-            var currentUser = User.Identity.GetUserId();
-            String Prueba = "Mario";
-            var usuario = db.AspNetUsers.ToList().Where(d => d.Id == currentUser);
+            
+            
+            var usuario = db.PartidaJuego; 
             if (usuario == null)
             {
+                return RedirectToAction("Index", "HomeController");
 
-                return View(Prueba);
             }
             return View(usuario);
         }
