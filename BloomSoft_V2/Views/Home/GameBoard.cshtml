@@ -1,6 +1,17 @@
-﻿@{
+﻿@model IEnumerable<BloomSoft_V2.Models.PartidaJuego>
+
+@{
+    
+    var ultimo = 0;
+    foreach (var item in Model)
+    {
+        ultimo = item.id_partidaJuego;
+    }
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.title = "PartidaJuego";
 }
+
+
 
 <!DOCTYPE html>
 
@@ -72,17 +83,17 @@
         }
 
         div.conoc {
-            margin-right:80px;
+            margin-right: 80px;
             width: 150px;
             height: 190px;
             background-image: url('../Imagenes/Conocimiento.png');
             background-repeat: no-repeat;
         }
 
-        div.conoc:hover {
-            background-image: url('../Imagenes/ConocimientoHov.png');
-            background-repeat: no-repeat;
-        }
+            div.conoc:hover {
+                background-image: url('../Imagenes/ConocimientoHov.png');
+                background-repeat: no-repeat;
+            }
 
         div.compr {
             width: 190px;
@@ -109,17 +120,17 @@
             }
 
         div.eval {
-            margin-right:180px;
+            margin-right: 180px;
             width: 150px;
             height: 190px;
             background-image: url('../Imagenes/Evaluacion.png');
             background-repeat: no-repeat;
         }
 
-        div.eval:hover {
-            background-image: url('../Imagenes/EvaluacionHov.png');
-            background-repeat: no-repeat;
-        }
+            div.eval:hover {
+                background-image: url('../Imagenes/EvaluacionHov.png');
+                background-repeat: no-repeat;
+            }
 
         div.aplic {
             width: 150px;
@@ -128,10 +139,10 @@
             background-repeat: no-repeat;
         }
 
-        div.aplic:hover {
-            background-image: url('../Imagenes/AplicacionHov.png');
-            background-repeat: no-repeat;
-        }
+            div.aplic:hover {
+                background-image: url('../Imagenes/AplicacionHov.png');
+                background-repeat: no-repeat;
+            }
 
         div.sint {
             width: 150px;
@@ -140,17 +151,17 @@
             background-repeat: no-repeat;
         }
 
-        div.sint:hover {
-            background-image: url('../Imagenes/SintesisHov.png');
-            background-repeat: no-repeat;
-        }
+            div.sint:hover {
+                background-image: url('../Imagenes/SintesisHov.png');
+                background-repeat: no-repeat;
+            }
 
         div.edit {
             width: 200px;
             height: 100px;
             background-image: url('../Imagenes/boton_tarjeta.png');
             background-repeat: no-repeat;
-            background-size:180px 140px;
+            background-size: 180px 140px;
         }
 
             div.edit:hover {
@@ -206,11 +217,11 @@
                                 <table class="table">
                                     <tr>
                                         <td>
-                                            <a href="@Url.Action("Create", "Edicion")">Agregar Requerimientos</a>
+                                            <a href="#">Agregar Requerimientos</a>
                                             
                                         </td>
 
-                                    </tr>                                   
+                                    </tr>
                                 </table>
                             </div>
                         </div>
@@ -248,10 +259,25 @@
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
                                     <span class="glyphicon glyphicon-th">
                                     </span>Equipo
+
                                 </a>
                             </h4>
                         </div>
+                        <div id="collapseTwo" class="panel-collapse collapse in">
+                            <div class="panel-body">
 
+
+                                @foreach (var item in Model)
+                                {
+                                    if (ultimo == item.id_partidaJuego)
+                                    {
+                                        @Html.DisplayFor(modelItem => item.AspNetUsers.UserName)
+                                    }
+
+                                }
+
+                            </div>
+                        </div>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -296,24 +322,24 @@
             </script>
 
             @*<div class="row">
-                    <div class="column">
-                        <div class="card">
-                            <img src="~/Imagenes/Analisis.png" class="card-img-top" alt="Analisis">
-                        </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="~/Imagenes/Analisis.png" class="card-img-top" alt="Analisis">
                     </div>
+                </div>
 
-                    <div class="column">
-                        <div class="card">
-                            <img src="~/Imagenes/Comprension.png" class="card-img-top" alt="Comprension">
-                        </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="~/Imagenes/Comprension.png" class="card-img-top" alt="Comprension">
                     </div>
+                </div>
 
-                    <div class="column">
-                        <div class="card">
-                            <img src="~/Imagenes/Conocimiento.png" class="card-img-top" alt="Conocimiento">
-                        </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="~/Imagenes/Conocimiento.png" class="card-img-top" alt="Conocimiento">
                     </div>
-                </div>*@
+                </div>
+            </div>*@
 
 
 
@@ -344,16 +370,33 @@
             </div>
            
             <div style="margin-top:-153px; float:left; margin-left:97%">
-                <a href="@Url.Action("Index", "Edicion")"><div class="edit">editar</div></a>
+                <a href="@Url.Action("Index", "TarjetaRequerims")"><div class="edit">editar</div></a>
 
-                <a href="#"><div class="lanzar"></div></a>
+                    <a href="#"><div class="lanzar"></div></a>
+                </div>
+                <<<<<<< HEAD
+                <div style="margin-top:-153px; float:left; margin-left:97%">
+                    <a href="#"><div class="lanzar"></div></a>
+                </div>
+
+                <div style="margin-top:30px; float:left; margin-left:97%">
+                    hola aqui estoy
+                </div>
+                =======
+                >>>>>>> e5277fc4d18f3b691cb7d5c99a8dc28ffe06757b
+                =======
+
+                <div style="margin-top:-153px; float:left; margin-left:97%">
+                    <a href="@Url.Action("Index", "TarjetaRequerims")"><div class="edit">editar</div></a>
+
+                    <a href="#"><div class="lanzar"></div></a>
+                </div>
+                >>>>>>> e5277fc4d18f3b691cb7d5c99a8dc28ffe06757b
+
+
             </div>
-
-          
-
         </div>
     </div>
-
 </body>
 </html>
 
