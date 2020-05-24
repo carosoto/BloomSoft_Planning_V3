@@ -1,0 +1,26 @@
+﻿@model BloomSoft_V2.Models.Verbotax
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Verbotax</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Taxonomia.categoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Taxonomia.categoria)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_verbo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

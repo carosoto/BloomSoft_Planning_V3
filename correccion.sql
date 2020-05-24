@@ -34,5 +34,5 @@ VALUES ('101000001');
 INSERT INTO Requerimiento(id_proyecto)
 VALUES ('101000001');*/
 
-ALTER TABLE dbo.VerbosTarjeta 
-ADD verbo VARCHAR(200) NOT NULL
+ALTER TABLE dbo.Verbotax
+ADD verbos VARCHAR(200) NOT NULL

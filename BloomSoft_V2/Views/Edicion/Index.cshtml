@@ -1,0 +1,111 @@
+﻿@model BloomSoft_V2.Models.Edicion
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    .inlineTable {
+        display: inline-block;
+       
+    }
+
+    .table2 {
+       
+        margin-left: 35%;
+        margin-top: -135px ;
+    }
+
+    .table3 {
+        margin-left: 70%;
+        margin-top: -130px;
+    }
+</style>
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create", "Create")
+</p>
+
+<table class="table inlineTable">
+
+    <tr>
+
+        <th>categoria</th>
+        <th>tiempo</th>
+        <th>dificultad</th>
+        <th>puntos</th>
+        <th></th>
+        
+        
+    </tr>
+    <tr>
+
+        @foreach (var item in Model.tarjetaModels)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Taxonomia.categoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tiempo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dificultad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.puntos)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id_tarjetaRequerim })
+
+            </td>
+        </tr>
+    }
+    </table>
+
+<table class="table table2">
+    <tr>
+  
+        <th>descripcion</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.tareaModels)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @Html.ActionLink("Edit2", "Edit2", new { /* id=item.PrimaryKey */})
+
+            </td>
+        </tr>
+    }
+</table>
+
+<table class="table table3">
+    <tr>
+
+        <th>verbos</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.verboModels)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.verbos)
+            </td>
+            <td>
+
+                @Html.ActionLink("Edit3", "Edit3", new { id = item.id_verbo })
+            </td>
+        </tr>
+    }
+
+
+</table>
+
+

@@ -183,12 +183,15 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EdicionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PartidaJuegoController.cs" />
     <Compile Include="Controllers\PartidaJugadorController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
+    <Compile Include="Controllers\TareasController.cs" />
     <Compile Include="Controllers\TarjetaRequerimsController.cs" />
+    <Compile Include="Controllers\VerbotaxController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -198,7 +201,9 @@
     <Compile Include="Models\AspNetUserLogins.cs" />
     <Compile Include="Models\AspNetUsers.cs" />
     <Compile Include="Models\BSModel.cs" />
+    <Compile Include="Models\Crear.cs" />
     <Compile Include="Models\C__MigrationHistory.cs" />
+    <Compile Include="Models\Edicion.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Licencia.cs" />
     <Compile Include="Models\LicenciaUsuario.cs" />
@@ -298,6 +303,21 @@
     <Content Include="Views\TarjetaRequerims\Details.cshtml" />
     <Content Include="Views\TarjetaRequerims\Edit.cshtml" />
     <Content Include="Views\TarjetaRequerims\Index.cshtml" />
+    <Content Include="Views\Edicion\Index.cshtml" />
+    <Content Include="Views\Verbotax\Create.cshtml" />
+    <Content Include="Views\Verbotax\Delete.cshtml" />
+    <Content Include="Views\Verbotax\Details.cshtml" />
+    <Content Include="Views\Verbotax\Edit.cshtml" />
+    <Content Include="Views\Verbotax\Index.cshtml" />
+    <Content Include="Views\Tareas\Create.cshtml" />
+    <Content Include="Views\Tareas\Delete.cshtml" />
+    <Content Include="Views\Tareas\Details.cshtml" />
+    <Content Include="Views\Tareas\Edit.cshtml" />
+    <Content Include="Views\Tareas\Index.cshtml" />
+    <Content Include="Views\Edicion\Edit.cshtml" />
+    <Content Include="Views\Edicion\Create.cshtml" />
+    <Content Include="Views\Edicion\Edit2.cshtml" />
+    <Content Include="Views\Edicion\Edit3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
