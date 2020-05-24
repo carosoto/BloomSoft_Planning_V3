@@ -1,0 +1,302 @@
+﻿@model BloomSoft_V2.Models.Edicion
+
+@{
+    ViewBag.Title = "Muestra";
+}
+
+<meta name="viewport" content="width=device-width" />
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<style>
+    .inlineTable {
+        display: inline-block;
+    }
+
+    .table2 {
+        margin-left: 35%;
+        margin-top: -135px;
+    }
+
+    .table3 {
+        margin-left: 70%;
+        margin-top: -130px;
+    }
+
+    .button2 {
+        padding-bottom: 2%;
+        padding-right: 15%;
+        padding-top: 2%;
+        padding-left: 15%;
+        background-color: transparent;
+        font-size: 18px;
+        color: white;
+        border: 2px solid white;
+        text-decoration: none;
+    }
+
+
+        .button2:hover {
+            background-color: #3b3879;
+            color: white;
+            border: 2px solid #3b3879;
+        }
+
+    .container {
+        padding: 2px 16px;
+    }
+
+    .modal-content {
+        border: 4px solid #3b3879;
+    }
+
+    input[type=text] {
+        border: 4px solid #3b3879;
+    }
+
+    textarea {
+        border: 4px solid #3b3879;
+        width: 100%;
+        height: 100px;
+    }
+
+    select {
+        border: 4px solid #3b3879;
+        width: 100%;
+        height: 40px;
+    }
+
+    .min {
+        width: 70px;
+        padding: 15px 22px;
+    }
+
+    .max {
+        width: 192px;
+        padding: 15px 22px;
+        margin-right: 180px;
+    }
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('a[href$="#cartaModal"]').on("click", function () {
+            $("#cartaModal").modal('show');
+        });
+        $("#btnHideModal").click(function () {
+            $("#cartaModal").modal('hide');
+        });
+    });
+</script>
+
+<h2>Requerimientos</h2>
+<div class="col-xs-10">
+    <a href="#cartaModal">Agregar Requerimiento</a>
+    <div class="modal fade" tabindex="-1" id="cartaModal" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        ×
+                    </button>
+                    <h4 class="modal-title">BloomSoft Planning Card</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="form-horizontal">
+                                <h4>TarjetaRequerim</h4>
+                                <hr />
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.tarjetaModels1.id_requerimiento, "id_requerimiento", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.tarjetaModels1.id_requerimiento, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.tarjetaModels1.id_requerimiento, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.tarjetaModels1.id_partidaJugador, "id_partidaJugador", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.tarjetaModels1.id_partidaJugador, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.tarjetaModels1.id_partidaJugador, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.tarjetaModels1.nivel_tax, "nivel_tax", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.tarjetaModels1.nivel_tax, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.tarjetaModels1.nivel_tax, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.tarjetaModels1.tiempo, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.tarjetaModels1.tiempo, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.tarjetaModels1.tiempo, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.tarjetaModels1.dificultad, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.tarjetaModels1.dificultad, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.tarjetaModels1.dificultad, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.tarjetaModels1.puntos, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.tarjetaModels1.puntos, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.tarjetaModels1.puntos, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.tareaModels1.id_tarjetaRequerim, "id_tarjetaRequerim", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.tareaModels1.id_tarjetaRequerim, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.tareaModels1.id_tarjetaRequerim, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.tareaModels1.descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.tareaModels1.descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.tareaModels1.descripcion, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.verboModels1.nivel_tax, "nivel_tax", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.verboModels1.nivel_tax, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.verboModels1.nivel_tax, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.verboModels1.verbos, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.verboModels1.verbos, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.verboModels1.verbos, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Create" class="btn btn-default" />
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        }
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary button button4">Lanzar carta</button>
+                    <button type="button" id="btnHideModal" class="btn btn-primary button button4">
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+    <div class="col-xs-6">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>categoria</th>
+                        <th>tiempo</th>
+                        <th>dificultad</th>
+                        <th>puntos</th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model.tarjetaModels)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Taxonomia.categoria)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tiempo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.dificultad)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.puntos)
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+
+            </table>
+        </div>
+    </div>
+
+    <div class="col-xs-3">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>descripcion</th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model.tareaModels)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.descripcion)
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+        </div>
+    </div>
+
+    <div class="col-xs-3">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>verbos</th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model.verboModels)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.verbos)
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+        </div>
+    </div>
+

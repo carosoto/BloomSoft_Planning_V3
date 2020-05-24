@@ -318,6 +318,7 @@
     <Content Include="Views\Edicion\Create.cshtml" />
     <Content Include="Views\Edicion\Edit2.cshtml" />
     <Content Include="Views\Edicion\Edit3.cshtml" />
+    <Content Include="Views\Edicion\Muestra.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

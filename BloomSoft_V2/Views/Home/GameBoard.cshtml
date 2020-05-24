@@ -217,7 +217,7 @@
                                 <table class="table">
                                     <tr>
                                         <td>
-                                            <a href="#">Agregar Requerimientos</a>
+                                            <a href="@Url.Action("Muestra","Edicion")">Agregar/Ver Requerimientos</a>
                                             
                                         </td>
 
@@ -305,21 +305,7 @@
                 </div>
             </div>
 
-            <script type="text/javascript">
-
-                $(document).ready(function () {
-                    $('a[href$="#cartaModal"]').on("click", function () {
-                        $("#cartaModal").modal('show');
-                    });
-
-                    $("#btnHideModal").click(function () {
-                        $("#cartaModal").modal('hide');
-                    });
-                });
-
-
-
-            </script>
+            
 
             @*<div class="row">
                 <div class="column">
@@ -370,7 +356,7 @@
             </div>
            
             <div style="margin-top:-153px; float:left; margin-left:97%">
-                <a href="@Url.Action("Index", "TarjetaRequerims")"><div class="edit">editar</div></a>
+                <a href="@Url.Action("Index", "Edicion")"><div class="edit">editar</div></a>
 
                     <a href="#"><div class="lanzar"></div></a>
                 </div>
@@ -385,12 +371,6 @@
                 =======
                 >>>>>>> e5277fc4d18f3b691cb7d5c99a8dc28ffe06757b
                 =======
-
-                <div style="margin-top:-153px; float:left; margin-left:97%">
-                    <a href="@Url.Action("Index", "TarjetaRequerims")"><div class="edit">editar</div></a>
-
-                    <a href="#"><div class="lanzar"></div></a>
-                </div>
                 >>>>>>> e5277fc4d18f3b691cb7d5c99a8dc28ffe06757b
 
 

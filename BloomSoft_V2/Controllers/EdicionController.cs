@@ -31,6 +31,19 @@ namespace BloomSoft_V2.Controllers
 
         }
 
+        public ActionResult Muestra()
+        {
+            var edicion = new Edicion
+            {
+                tarjetaModels = db.TarjetaRequerim,
+                tareaModels = db.Tarea,
+                verboModels = db.Verbotax
+
+            };
+
+            return View(edicion);
+        }
+
         // GET: Edicion/Create
         public ActionResult Create()
         {
