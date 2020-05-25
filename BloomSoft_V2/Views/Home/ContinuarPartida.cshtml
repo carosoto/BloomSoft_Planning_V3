@@ -1,0 +1,484 @@
+﻿@model IEnumerable<BloomSoft_V2.Models.PartidaJuego>
+@using Microsoft.AspNet.Identity
+
+@{
+
+    var ultimo = 0;
+    foreach (var item in Model)
+    {
+        ultimo = item.id_partidaJuego;
+    }
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.title = "ContinuarJuego";
+}
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    @Styles.Render("~/Content/menustyle")
+    @Scripts.Render("~/bundles/modernizr")
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+
+    <title></title>
+    <style>
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            width: 40%;
+        }
+
+            .card:hover {
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            }
+
+        .container {
+            padding: 2px 16px;
+        }
+
+        .modal-content {
+            border: 4px solid #3b3879;
+        }
+
+        input[type=text] {
+            border: 4px solid #3b3879;
+        }
+
+        textarea {
+            border: 4px solid #3b3879;
+            width: 100%;
+            height: 100px;
+        }
+
+        select {
+            border: 4px solid #3b3879;
+            width: 100%;
+            height: 40px;
+        }
+
+        .min {
+            width: 70px;
+            padding: 15px 22px;
+        }
+
+        .max {
+            width: 192px;
+            padding: 15px 22px;
+            margin-right: 180px;
+        }
+
+        div.conoc {
+            margin-right: 80px;
+            width: 150px;
+            height: 190px;
+            background-image: url('../Imagenes/Conocimiento.png');
+            background-repeat: no-repeat;
+        }
+
+            div.conoc:hover {
+                background-image: url('../Imagenes/ConocimientoHov.png');
+                background-repeat: no-repeat;
+            }
+
+        div.compr {
+            width: 190px;
+            height: 190px;
+            background-image: url('../Imagenes/Comprension.png');
+            background-repeat: no-repeat;
+        }
+
+            div.compr:hover {
+                background-image: url('../Imagenes/ComprensionHov.png');
+                background-repeat: no-repeat;
+            }
+
+        div.analisis {
+            width: 150px;
+            height: 190px;
+            background-image: url('../Imagenes/Analisis.png');
+            background-repeat: no-repeat;
+        }
+
+            div.analisis:hover {
+                background-image: url('../Imagenes/AnalisisHov.png');
+                background-repeat: no-repeat;
+            }
+
+        div.eval {
+            margin-right: 180px;
+            width: 150px;
+            height: 190px;
+            background-image: url('../Imagenes/Evaluacion.png');
+            background-repeat: no-repeat;
+        }
+
+            div.eval:hover {
+                background-image: url('../Imagenes/EvaluacionHov.png');
+                background-repeat: no-repeat;
+            }
+
+        div.aplic {
+            width: 150px;
+            height: 190px;
+            background-image: url('../Imagenes/Aplicacion.png');
+            background-repeat: no-repeat;
+        }
+
+            div.aplic:hover {
+                background-image: url('../Imagenes/AplicacionHov.png');
+                background-repeat: no-repeat;
+            }
+
+        div.sint {
+            width: 150px;
+            height: 190px;
+            background-image: url('../Imagenes/Sintesis.png');
+            background-repeat: no-repeat;
+        }
+
+            div.sint:hover {
+                background-image: url('../Imagenes/SintesisHov.png');
+                background-repeat: no-repeat;
+            }
+
+        div.edit {
+            width: 200px;
+            height: 100px;
+            background-image: url('../Imagenes/boton_tarjeta.png');
+            background-repeat: no-repeat;
+            background-size: 180px 140px;
+        }
+
+            div.edit:hover {
+                background-image: url('../Imagenes/boton tarjetaHov.png');
+                background-repeat: no-repeat;
+            }
+
+        div.edit {
+            width: 200px;
+            height: 150px;
+            background-image: url('../Imagenes/boton_tarjeta.png');
+            background-repeat: no-repeat;
+            background-size: 180px 140px;
+        }
+
+            div.edit:hover {
+                background-image: url('../Imagenes/boton tarjetaHov.png');
+                background-repeat: no-repeat;
+            }
+
+        div.lanzar {
+            width: 100px;
+            height: 150px;
+            background-image: url('../Imagenes/carta.jpg');
+            background-repeat: no-repeat;
+            background-size: 90px 140px;
+        }
+
+            div.lanzar:hover {
+                background-image: url('../Imagenes/cartaHov.jpg');
+                background-repeat: no-repeat;
+            }
+    </style>
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 col-md-3">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                    <span class="glyphicon glyphicon-folder-close">
+                                    </span> Requerimientos
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <table class="table">
+                                    <tr>
+                                        <td>
+                                            <a href="#">Agregar Requerimientos</a>
+
+                                        </td>
+
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                    <span class="glyphicon glyphicon-folder-close">
+                                    </span> Resultado
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <table class="table">
+                                    <tr>
+                                        <td>
+                                            <a href="#">Generar Resultados</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#">Exportar</a>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                    <span class="glyphicon glyphicon-th">
+                                    </span>Equipo
+
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse in">
+                            <div class="panel-body">
+
+
+                                @foreach (var item in Model)
+                                {
+                                    if (ultimo == item.id_partidaJuego)
+                                    {
+                                        @Html.DisplayFor(modelItem => item.AspNetUsers.UserName, User.Identity.GetUserName())
+                                    }
+
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                    <span class="glyphicon glyphicon-th">
+                                    </span>Taxonomia de Bloom
+                                </a>
+                            </h4>
+                        </div>
+
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+                                    <span class="glyphicon glyphicon-th">
+                                    </span>Salir del Juego
+                                </a>
+                            </h4>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+
+                $(document).ready(function () {
+                    $('a[href$="#cartaModal"]').on("click", function () {
+                        $("#cartaModal").modal('show');
+                    });
+
+                    $("#btnHideModal").click(function () {
+                        $("#cartaModal").modal('hide');
+                    });
+                });
+
+
+
+            </script>
+
+            @*<div class="row">
+                    <div class="column">
+                        <div class="card">
+                            <img src="~/Imagenes/Analisis.png" class="card-img-top" alt="Analisis">
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="card">
+                            <img src="~/Imagenes/Comprension.png" class="card-img-top" alt="Comprension">
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="card">
+                            <img src="~/Imagenes/Conocimiento.png" class="card-img-top" alt="Conocimiento">
+                        </div>
+                    </div>
+                </div>*@
+
+
+
+            <div style="margin-top:5%">
+
+                <div style="float:right; margin-right:15%">
+                    <a><div class="conoc"></div></a>
+                </div>
+                <div style="float:right; margin-right:5%">
+                    <a><div class="compr"></div></a>
+                </div>
+                <div style="float:right; margin-right:5%">
+                    <a><div class="analisis"></div></a>
+                </div>
+            </div>
+
+            <div style="margin-top:30%; margin-right:3%">
+                <div style="float:right; margin-right:5%">
+                    <a><div class="eval"></div></a>
+                </div>
+                <div style="float:right; margin-right:5%">
+                    <a><div class="aplic"></div></a>
+                </div>
+                <div style="float:right; margin-right:5%">
+                    <a><div class="sint"></div></a>
+                </div>
+
+            </div>
+            <<<<<<< HEAD
+            <<<<<<< HEAD
+
+            <div style="margin-top:-93px; float:left; margin-left:80%">
+                <a href="#cartaModal"><div class="edit"></div></a>
+                <div class="modal fade" tabindex="-1" id="cartaModal" data-keyboard="false" data-backdrop="static">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">
+                                    ×
+                                </button>
+                                <h4 class="modal-title">BloomSoft Planning Card</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+
+                                    <div class="form-group">
+                                        <table class="col-md-12 col-sm-12 col-xs-12">
+                                            <tr>
+                                                <td>
+                                                    <input class="form-control min" type="text" placeholder="FR#" id="inputFR">
+
+                                                </td>
+
+                                                <td>
+                                                    <input class="form-control max" type="text" placeholder="Verbos de la taxonomía de BloomSoft" id="inputVR">
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </div>
+
+                                    <hr>
+
+                                    <div class="form-group">
+                                        <table class="col-md-12 col-sm-12 col-xs-12">
+                                            <tr>
+                                                <td>
+                                                    <input class="form-control min" type="text" placeholder="PRFR#" id="inputPRFR">
+
+                                                </td>
+
+                                                <td>
+                                                    <input class="form-control max" type="text" placeholder="Descripcion de los requerimientos funcionales" id="inputDS" width="80">
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </div>
+
+                                    <hr>
+
+                                    <div class="form-group">
+                                        <textarea name="task" rows="10" cols="30" placeholder="Tareas por hacer"></textarea>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group">
+                                        <select id="Level" name="BL">
+                                            <option disabled selected>Nivel de BloomSoft:</option>
+                                            <option value="1">Evaluation/Deployment</option>
+                                            <option value="2">Application/Testing</option>
+                                            <option value="3">Synthesis/Development</option>
+                                            <option value="4">Analysis/Design</option>
+                                            <option value="5">Comprehension/Anaysis&amp;Requirements</option>
+                                            <option value="6">Knowledge/Preanalysis&amp;Planning</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary button button4">Lanzar carta</button>
+                                <button type="button" id="btnHideModal" class="btn btn-primary button button4">
+                                    Cancelar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                =======
+
+                <div style="margin-top:-153px; float:left; margin-left:97%">
+                    <a href="@Url.Action("Index", "TarjetaRequerims")"><div class="edit">editar</div></a>
+                    >>>>>>> e5277fc4d18f3b691cb7d5c99a8dc28ffe06757b
+
+                    <a href="#"><div class="lanzar"></div></a>
+                </div>
+                <<<<<<< HEAD
+                <div style="margin-top:-153px; float:left; margin-left:97%">
+                    <a href="#"><div class="lanzar"></div></a>
+                </div>
+
+                <div style="margin-top:30px; float:left; margin-left:97%">
+                    hola aqui estoy
+                </div>
+                =======
+                >>>>>>> e5277fc4d18f3b691cb7d5c99a8dc28ffe06757b
+                =======
+
+                <div style="margin-top:-153px; float:left; margin-left:97%">
+                    <a href="@Url.Action("Index", "TarjetaRequerims")"><div class="edit">editar</div></a>
+
+                    <a href="#"><div class="lanzar"></div></a>
+                </div>
+                >>>>>>> e5277fc4d18f3b691cb7d5c99a8dc28ffe06757b
+
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
