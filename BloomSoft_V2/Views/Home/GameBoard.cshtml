@@ -194,6 +194,73 @@
                 background-image: url('../Imagenes/cartaHov.jpg');
                 background-repeat: no-repeat;
             }
+
+        #myImg {
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+            #myImg:hover {
+                opacity: 0.7;
+            }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+
+        .modal-content, #caption {
+            -webkit-animation-name: zoom;
+            -webkit-animation-duration: 0.6s;
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        .close {
+            position: absolute;
+            top: 45px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            }
+
+            .close:hover,
+            .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+            }
+
     </style>
 
 
@@ -218,7 +285,7 @@
                                     <tr>
                                         <td>
                                             <a href="@Url.Action("Muestra","Edicion")">Agregar/Ver Requerimientos</a>
-                                            
+
                                         </td>
 
                                     </tr>
@@ -285,6 +352,7 @@
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
                                     <span class="glyphicon glyphicon-th">
                                     </span>Taxonomia de Bloom
+                                    <img id="myImg" src="~/Content/imagenes/TaxBloom.jpg" alt="Taxonomía de Bloom" style="width:100%;max-width:300px">
                                 </a>
                             </h4>
                         </div>
@@ -305,27 +373,50 @@
                 </div>
             </div>
 
-            
+            <div id="myModal" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="img01">
+                <div id="caption"></div>
+            </div>
+
+            <script>
+                var modal = document.getElementById("myModal");
+
+                var img = document.getElementById("myImg");
+                var modalImg = document.getElementById("img01");
+                var captionText = document.getElementById("caption");
+                img.onclick = function () {
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                    captionText.innerHTML = this.alt;
+                }
+
+                var span = document.getElementsByClassName("close")[0];
+
+                span.onclick = function () {
+                    modal.style.display = "none";
+                }
+            </script>
 
             @*<div class="row">
-                <div class="column">
-                    <div class="card">
-                        <img src="~/Imagenes/Analisis.png" class="card-img-top" alt="Analisis">
-                    </div>
+            <div class="column">
+                <div class="card">
+                    <img src="~/Imagenes/Analisis.png" class="card-img-top" alt="Analisis">
                 </div>
+            </div>
 
-                <div class="column">
-                    <div class="card">
-                        <img src="~/Imagenes/Comprension.png" class="card-img-top" alt="Comprension">
-                    </div>
+            <div class="column">
+                <div class="card">
+                    <img src="~/Imagenes/Comprension.png" class="card-img-top" alt="Comprension">
                 </div>
+            </div>
 
-                <div class="column">
-                    <div class="card">
-                        <img src="~/Imagenes/Conocimiento.png" class="card-img-top" alt="Conocimiento">
-                    </div>
+            <div class="column">
+                <div class="card">
+                    <img src="~/Imagenes/Conocimiento.png" class="card-img-top" alt="Conocimiento">
                 </div>
-            </div>*@
+            </div>
+        </div>*@
 
 
 
@@ -354,27 +445,20 @@
                 </div>
 
             </div>
-           
+
             <div style="margin-top:-153px; float:left; margin-left:97%">
                 <a href="@Url.Action("Index", "Edicion")"><div class="edit">editar</div></a>
 
-                    <a href="#"><div class="lanzar"></div></a>
-                </div>
-                <<<<<<< HEAD
-                <div style="margin-top:-153px; float:left; margin-left:97%">
-                    <a href="#"><div class="lanzar"></div></a>
-                </div>
-
-                <div style="margin-top:30px; float:left; margin-left:97%">
-                    hola aqui estoy
-                </div>
-                =======
-                >>>>>>> e5277fc4d18f3b691cb7d5c99a8dc28ffe06757b
-                =======
-                >>>>>>> e5277fc4d18f3b691cb7d5c99a8dc28ffe06757b
-
-
+                <a href="#"><div class="lanzar"></div></a>
             </div>
+            <div style="margin-top:-153px; float:left; margin-left:97%">
+                <a href="#"><div class="lanzar"></div></a>
+            </div>
+
+            <div style="margin-top:30px; float:left; margin-left:97%">
+                hola aqui estoy
+            </div>
+        </div>
         </div>
     </div>
 </body>
