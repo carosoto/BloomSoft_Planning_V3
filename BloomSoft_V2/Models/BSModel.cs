@@ -28,6 +28,7 @@ namespace BloomSoft_V2.Models
         public virtual DbSet<Verbotax> Verbotax { get; set; }
         public virtual DbSet<Pago> Pago { get; set; }
         public virtual DbSet<Tarea> Tarea { get; set; }
+       
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -139,8 +140,6 @@ namespace BloomSoft_V2.Models
                 .HasMany(e => e.Verbotax)
                 .WithRequired(e => e.Taxonomia)
                 .WillCascadeOnDelete(false);
-
-            
 
             modelBuilder.Entity<Pago>()
                 .Property(e => e.monto)

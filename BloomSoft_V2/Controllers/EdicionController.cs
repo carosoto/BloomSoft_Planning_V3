@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using BloomSoft_V2.Models;
 using Microsoft.AspNet.Identity;
 
@@ -44,6 +45,8 @@ namespace BloomSoft_V2.Controllers
             return View(edicion);
         }
 
+        
+
         // GET: Edicion/Create
         public ActionResult Create()
         {
@@ -54,27 +57,35 @@ namespace BloomSoft_V2.Controllers
         [HttpPost]
         public ActionResult Create(Edicion model)
         {
+            
             if (ModelState.IsValid)
             {
+                
                 db.TarjetaRequerim.Add(model.tarjetaModels1);
                 db.Tarea.Add(model.tareaModels1);
                 db.Verbotax.Add(model.verboModels1);
+
+
                 db.SaveChanges();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Muestra");
             }
-
+            
             return View(model);
         }
 
-        public ActionResult Edit(int? id)
-        {
+       
+
+            public ActionResult Edit(int? id)
+            {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Edicion edicion = new Edicion();
-            edicion.tarjetaModels1 = db.TarjetaRequerim.Find(id);           
+            edicion.tarjetaModels1 = db.TarjetaRequerim.Find(id);
+           
+            
             if (edicion == null)
             {
                 return HttpNotFound();
@@ -87,7 +98,9 @@ namespace BloomSoft_V2.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(edicion.tarjetaModels1).State = EntityState.Modified;               
+                db.Entry(edicion.tarjetaModels1).State = EntityState.Modified;
+               
+                
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

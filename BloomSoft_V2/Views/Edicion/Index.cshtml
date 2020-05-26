@@ -7,13 +7,11 @@
 <style>
     .inlineTable {
         display: inline-block;
-       
     }
 
     .table2 {
-       
         margin-left: 35%;
-        margin-top: -135px ;
+        margin-top: -135px;
     }
 
     .table3 {
@@ -22,90 +20,91 @@
     }
 </style>
 
-<h2>Index</h2>
+<h2>Tarjetas Asignadas</h2>
 
-<p>
-    @Html.ActionLink("Create", "Create")
-</p>
+<div class="col-xs-6">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>categoria</th>
+                    <th>tiempo</th>
+                    <th>dificultad</th>
+                    <th>puntos</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.tarjetaModels)
+            {
+                <tbody>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Taxonomia.categoria)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.tiempo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.dificultad)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.puntos)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.id_tarjetaRequerim })
+                        </td>
+                    </tr>
+                </tbody>
+            }
 
-<table class="table inlineTable">
+        </table>
+    </div>
+</div>
 
-    <tr>
+<div class="col-xs-3">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>descripcion</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.tareaModels)
+            {
+                <tbody>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.descripcion)
+                        </td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+</div>
 
-        <th>categoria</th>
-        <th>tiempo</th>
-        <th>dificultad</th>
-        <th>puntos</th>
-        <th></th>
-        
-        
-    </tr>
-    <tr>
+<div class="col-xs-3">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>verbos</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.verboModels)
+            {
+                <tbody>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.verbos)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit3", "Edit3", new { id = item.id_verbo })
 
-        @foreach (var item in Model.tarjetaModels)
-        {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Taxonomia.categoria)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.tiempo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.dificultad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.puntos)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id_tarjetaRequerim })
-
-            </td>
-        </tr>
-    }
-    </table>
-
-<table class="table table2">
-    <tr>
-  
-        <th>descripcion</th>
-        <th></th>
-    </tr>
-    @foreach (var item in Model.tareaModels)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.descripcion)
-            </td>
-            <td>
-                @Html.ActionLink("Edit2", "Edit2", new { /* id=item.PrimaryKey */})
-
-            </td>
-        </tr>
-    }
-</table>
-
-<table class="table table3">
-    <tr>
-
-        <th>verbos</th>
-        <th></th>
-    </tr>
-    @foreach (var item in Model.verboModels)
-    {
-
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.verbos)
-            </td>
-            <td>
-
-                @Html.ActionLink("Edit3", "Edit3", new { id = item.id_verbo })
-            </td>
-        </tr>
-    }
-
-
-</table>
-
+                        </td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+</div>
 
