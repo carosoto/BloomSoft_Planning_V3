@@ -12,6 +12,7 @@ namespace BloomSoft_V2.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Proyecto()
         {
+            Participante = new HashSet<Participante>();
             PartidaJuego = new HashSet<PartidaJuego>();
             Requerimiento = new HashSet<Requerimiento>();
         }
@@ -32,6 +33,9 @@ namespace BloomSoft_V2.Models
         public int? interaciones { get; set; }
 
         public virtual AspNetUsers AspNetUsers { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Participante> Participante { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PartidaJuego> PartidaJuego { get; set; }

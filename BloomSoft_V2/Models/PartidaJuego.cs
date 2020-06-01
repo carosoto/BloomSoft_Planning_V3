@@ -12,6 +12,7 @@ namespace BloomSoft_V2.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PartidaJuego()
         {
+            EstadisticasPartida = new HashSet<EstadisticasPartida>();
             PartidaJugador = new HashSet<PartidaJugador>();
         }
 
@@ -30,6 +31,9 @@ namespace BloomSoft_V2.Models
         public TimeSpan hora { get; set; }
 
         public virtual AspNetUsers AspNetUsers { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EstadisticasPartida> EstadisticasPartida { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PartidaJugador> PartidaJugador { get; set; }
