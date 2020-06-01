@@ -9,14 +9,15 @@ namespace BloomSoft_V2.Models
     [Table("Licencia")]
     public partial class Licencia
     {
-        [Key]
+        public int id { get; set; }
+
         public int id_licencia { get; set; }
 
         public int cantidadRequerimientos { get; set; }
 
         public int cantidadProyectos { get; set; }
 
-        public TimeSpan tiempo { get; set; }
+        public int tiempo { get; set; }
 
         public virtual LicenciaUsuario LicenciaUsuario { get; set; }
     }

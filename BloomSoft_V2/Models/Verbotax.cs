@@ -12,7 +12,7 @@ namespace BloomSoft_V2.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Verbotax()
         {
-            TarjetaRequerim = new HashSet<TarjetaRequerim>();
+            VerbosTarjeta = new HashSet<VerbosTarjeta>();
         }
 
         [Key]
@@ -27,6 +27,6 @@ namespace BloomSoft_V2.Models
         public virtual Taxonomia Taxonomia { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TarjetaRequerim> TarjetaRequerim { get; set; }
+        public virtual ICollection<VerbosTarjeta> VerbosTarjeta { get; set; }
     }
 }

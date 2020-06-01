@@ -12,8 +12,8 @@ namespace BloomSoft_V2.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TarjetaRequerim()
         {
+            VerbosTarjeta = new HashSet<VerbosTarjeta>();
             Tarea = new HashSet<Tarea>();
-            Verbotax = new HashSet<Verbotax>();
         }
 
         [Key]
@@ -35,12 +35,12 @@ namespace BloomSoft_V2.Models
 
         public virtual Requerimiento Requerimiento { get; set; }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VerbosTarjeta> VerbosTarjeta { get; set; }
+
         public virtual Taxonomia Taxonomia { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tarea> Tarea { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Verbotax> Verbotax { get; set; }
     }
 }
