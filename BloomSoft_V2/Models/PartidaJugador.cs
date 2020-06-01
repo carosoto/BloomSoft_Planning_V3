@@ -26,6 +26,8 @@ namespace BloomSoft_V2.Models
 
         public int? puntos { get; set; }
 
+        public bool turno { get; set; }
+
         public virtual AspNetUsers AspNetUsers { get; set; }
 
         public virtual PartidaJuego PartidaJuego { get; set; }
