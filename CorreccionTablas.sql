@@ -1,7 +1,7 @@
 ﻿/*Drop table dbo.Licencia;
 Drop table dbo.VerbosTarjeta;*/
 
-create table Licencia(
+/*create table Licencia(
 	id INT UNIQUE IDENTITY(1,1) NOT NULL,
 	id_licencia INT NOT NULL,
 	cantidadRequerimientos INT NOT NULL,
@@ -54,5 +54,87 @@ create table VerbosTarjeta(
 	REFERENCES TarjetaRequerim(id_tarjetaRequerim),
 	CONSTRAINT foreign_verB FOREIGN KEY (id_verbo)
 	REFERENCES Verbotax(id_verbo)
-)
+)*/
+
+/*ALTER TABLE dbo.Licencia
+ADD nombre VARCHAR(30) NOT NULL*/
+
+INSERT INTO Verbotax(nivel_tax,verbos) 
+VALUES ('1','Bosquejar');
+INSERT INTO Verbotax(nivel_tax,verbos) 
+VALUES ('1','Escribir');
+INSERT INTO Verbotax(nivel_tax,verbos) 
+VALUES ('1','Explicar');
+INSERT INTO Verbotax(nivel_tax,verbos) 
+VALUES ('1','Exponer');
+INSERT INTO Verbotax(nivel_tax,verbos) 
+VALUES ('1','Leer');
+INSERT INTO Verbotax(nivel_tax,verbos) 
+VALUES ('1','Memorizar');  
+
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('2','Codificar');
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('2','Deducir');
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('2','Definir');
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('2','Expresar');
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('2','Interpretar');
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('2','Opinar');
+
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('3','Demostrar');
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('3','Determinar');
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('3','Diseñar');
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('3','Modificar');
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('3','Probar');
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('3','Representar');
+ 
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('4','Analizar');
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('4','Categorizar');
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('4','Debatir');
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('4','Detallar');
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('4','Experimentar');
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('4','Reflexionar');
+
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('5','Clasificar');
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('5','Construir');
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('5','Fundamentar');
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('5','Estructurar');
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('5','Modificar');
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('5','Programar');
+
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('6','Aprobar');
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('6','Elegir');
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('6','Demostrar');
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('6','Evaluar');
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('6','Opinar');
+INSERT INTO Verbotax (nivel_tax,verbos) 
+VALUES ('6','Relacionar');
+
 
