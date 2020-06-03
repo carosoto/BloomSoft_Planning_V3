@@ -24,8 +24,8 @@ namespace BloomSoft_V2.Controllers
             {
                 tarjetaModels = db.TarjetaRequerim,
                 tareaModels = db.Tarea,
-                verboModels = db.Verbotax
-
+                verboModels = db.Verbotax,
+                verbotarjetaModels=db.VerbosTarjeta
             };
 
             return View(edicion);
@@ -38,8 +38,8 @@ namespace BloomSoft_V2.Controllers
             {
                 tarjetaModels = db.TarjetaRequerim,
                 tareaModels = db.Tarea,
-                verboModels = db.Verbotax
-
+                verboModels = db.Verbotax,
+                verbotarjetaModels = db.VerbosTarjeta
             };
 
             return View(edicion);
@@ -48,9 +48,14 @@ namespace BloomSoft_V2.Controllers
         
 
         // GET: Edicion/Create
-        public ActionResult Create()
+        public ActionResult Create(int id_r)
         {
-            return View();
+            Edicion edicion = new Edicion();
+            edicion.tareaModels1.id_tarjetaRequerim = id_r;
+            edicion.verbotarjetaModels1.id_tarjetaRequerim = id_r;
+            ViewBag.id_verbo = new SelectList(db.Verbotax, "id_verbo", "verbos");
+
+            return View(edicion);
 
         }
 
@@ -63,8 +68,7 @@ namespace BloomSoft_V2.Controllers
                 
                 db.TarjetaRequerim.Add(model.tarjetaModels1);
                 db.Tarea.Add(model.tareaModels1);
-                db.Verbotax.Add(model.verboModels1);
-
+                db.VerbosTarjeta.Add(model.verbotarjetaModels1);
 
                 db.SaveChanges();
 

@@ -1,5 +1,6 @@
 ﻿@model BloomSoft_V2.Models.Edicion
 @{
+    
     ViewBag.Title = "Create";
 }
 
@@ -15,95 +16,80 @@
     <div class="row">
         <div class="col-md-9 col-md-offset-3">
            
-                <div class="form-horizontal">
-                    <h4>TarjetaRequerim</h4>
-                    <hr />
+            <div class="form-horizontal">
+                <h4>TarjetaRequerim</h4>
+                <hr />
 
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.tarjetaModels1.id_requerimiento, "id_requerimiento", htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.tarjetaModels1.id_requerimiento, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.tarjetaModels1.id_requerimiento, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.tarjetaModels1.id_partidaJugador, "id_partidaJugador", htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.tarjetaModels1.id_partidaJugador, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.tarjetaModels1.id_partidaJugador, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.tarjetaModels1.nivel_tax, "nivel_tax", htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.tarjetaModels1.nivel_tax, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.tarjetaModels1.nivel_tax, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.tarjetaModels1.tiempo, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.tarjetaModels1.tiempo, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.tarjetaModels1.tiempo, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.tarjetaModels1.dificultad, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.tarjetaModels1.dificultad, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.tarjetaModels1.dificultad, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.tarjetaModels1.puntos, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(model => model.tarjetaModels1.puntos, new { @Value = 100 })
-                            @Html.ValidationMessageFor(model => model.tarjetaModels1.puntos, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.tareaModels1.id_tarjetaRequerim, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(model => model.tareaModels1.id_tarjetaRequerim, new { @Value = 30 })
-                            @Html.ValidationMessageFor(model => model.tareaModels1.id_tarjetaRequerim, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.tareaModels1.descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.tareaModels1.descripcion, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.tareaModels1.descripcion, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.verboModels1.nivel_tax, "nivel_tax", htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(model => model.verboModels1.nivel_tax, new { @Value = 2 })
-                            @Html.ValidationMessageFor(model => model.verboModels1.nivel_tax, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.verboModels1.verbos, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.verboModels1.verbos, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.verboModels1.verbos, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Create" class="btn btn-default" />
-                        </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.tarjetaModels1.id_requerimiento, "id_requerimiento", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.tarjetaModels1.id_requerimiento, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.tarjetaModels1.id_requerimiento, "", new { @class = "text-danger" })
                     </div>
                 </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.tarjetaModels1.id_partidaJugador, "id_partidaJugador", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.tarjetaModels1.id_partidaJugador, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.tarjetaModels1.id_partidaJugador, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.tarjetaModels1.nivel_tax, "nivel_tax", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.tarjetaModels1.nivel_tax, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.tarjetaModels1.nivel_tax, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.tarjetaModels1.tiempo, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.tarjetaModels1.tiempo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.tarjetaModels1.tiempo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.tarjetaModels1.dificultad, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.tarjetaModels1.dificultad, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.tarjetaModels1.dificultad, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.tarjetaModels1.puntos, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.tarjetaModels1.puntos, new { @Value = 100 })
+                        @Html.ValidationMessageFor(model => model.tarjetaModels1.puntos, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.tareaModels1.descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.tareaModels1.descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.tareaModels1.descripcion, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.verbotarjetaModels1.id_verbo, "id_verbo", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.verbotarjetaModels1.id_verbo, ViewBag.id_verbo as SelectList, Model.verbotarjetaModels1.id_verbo)
+                        @Html.ValidationMessageFor(model => model.verbotarjetaModels1.id_verbo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
    

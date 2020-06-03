@@ -85,11 +85,12 @@
 </style>
 
 
-
 <h2>Requerimientos</h2>
+
 <p>
-    @Html.ActionLink("Create", "Create")
+    @Html.ActionLink("Create", "Create", new { id_r = Model.tarjetaModels.Last().id_tarjetaRequerim })
 </p>
+
 <div class="col-xs-6">
     <div class="table-responsive">
         <table class="table table-striped">
@@ -103,6 +104,8 @@
             </thead>
             @foreach (var item in Model.tarjetaModels)
             {
+
+
                 <tbody>
                     <tr>
                         <td>
@@ -155,17 +158,19 @@
                     <th>verbos</th>
                 </tr>
             </thead>
-            @foreach (var item in Model.verboModels)
-            {
-                <tbody>
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.verbos)
-                        </td>
-                    </tr>
-                </tbody>
-            }
-        </table>
+            @foreach (var item in Model.verbotarjetaModels)
+            {               
+                   <tbody>
+                        <tr>
+                            <td>
+
+                                @Html.DisplayFor(modelItem => item.Verbotax.verbos)
+
+                            </td>
+                        </tr>
+                    </tbody>                    
+             }
+            </table>
     </div>
 </div>
 
