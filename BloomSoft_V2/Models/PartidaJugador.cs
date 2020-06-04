@@ -12,6 +12,8 @@ namespace BloomSoft_V2.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PartidaJugador()
         {
+            EstadisticasPartida = new HashSet<EstadisticasPartida>();
+            EstadisticasPartida1 = new HashSet<EstadisticasPartida>();
             TarjetaRequerim = new HashSet<TarjetaRequerim>();
         }
 
@@ -26,7 +28,15 @@ namespace BloomSoft_V2.Models
 
         public int? puntos { get; set; }
 
+        public bool turno { get; set; }
+
         public virtual AspNetUsers AspNetUsers { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EstadisticasPartida> EstadisticasPartida { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EstadisticasPartida> EstadisticasPartida1 { get; set; }
 
         public virtual PartidaJuego PartidaJuego { get; set; }
 

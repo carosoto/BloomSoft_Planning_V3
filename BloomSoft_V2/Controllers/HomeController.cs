@@ -63,21 +63,51 @@ namespace BloomSoft_V2.Controllers
             return View(proyecto);
         }*/
 
-       
+
 
         //[Authorize]
         public ActionResult GameBoard()
         {
-            
-            
-            var usuario = db.PartidaJuego; 
-            if (usuario == null)
+            var partJuego = db.PartidaJugador;
+            if (partJuego == null)
             {
                 return RedirectToAction("Index", "HomeController");
-
             }
-            return View(usuario);
+            return View(partJuego);
         }
+        /*//Funcion para cambiar el turno
+        public ActionResult GameBoard(int id_part)
+        {
+            var part = db.PartidaJugador.Where(x => x.id_partidaJuego == id_part);
+            int cantidad = 0;
+            int contador = 0;
+            int contador2 = 0;
+            foreach (var registros in part)
+                cantidad++;
+            foreach (var partida in part)
+            {
+                contador++;
+                if (partida.turno == true)
+                    db.PartidaJugador.Find(partida.id_partidaJugador).turno = false;
+                if (contador == cantidad)
+                    contador = 1;
+            }
+            foreach (var partida in part)
+            {
+                contador2++;
+                if (contador + 1 == contador2)
+                    db.PartidaJugador.Find(partida.id_partidaJugador).turno = true;
+            }
+            db.SaveChanges();
+
+            var partJuego = db.PartidaJugador;
+            if (partJuego == null)
+            {
+                return RedirectToAction("Index", "HomeController");
+            }
+            return View(partJuego);
+        }
+        */
 
         //[Authorize]
         public ActionResult ContinuarPartida()

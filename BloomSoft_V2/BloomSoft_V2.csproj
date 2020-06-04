@@ -191,6 +191,7 @@
     <Compile Include="Controllers\ProyectoController.cs" />
     <Compile Include="Controllers\TareasController.cs" />
     <Compile Include="Controllers\TarjetaRequerimsController.cs" />
+    <Compile Include="Controllers\VerbosTarjetaController.cs" />
     <Compile Include="Controllers\VerbotaxController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -204,11 +205,13 @@
     <Compile Include="Models\BSModel.cs" />
     <Compile Include="Models\C__MigrationHistory.cs" />
     <Compile Include="Models\Edicion.cs" />
+    <Compile Include="Models\EstadisticasPartida.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Licencia.cs" />
     <Compile Include="Models\LicenciaUsuario.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Pago.cs" />
+    <Compile Include="Models\Participante.cs" />
     <Compile Include="Models\PartidaJuego.cs" />
     <Compile Include="Models\PartidaJugador.cs" />
     <Compile Include="Models\ProjectIds.cs" />
@@ -320,6 +323,11 @@
     <Content Include="Views\Edicion\Edit2.cshtml" />
     <Content Include="Views\Edicion\Edit3.cshtml" />
     <Content Include="Views\Edicion\Muestra.cshtml" />
+    <Content Include="Views\VerbosTarjeta\Create.cshtml" />
+    <Content Include="Views\VerbosTarjeta\Delete.cshtml" />
+    <Content Include="Views\VerbosTarjeta\Details.cshtml" />
+    <Content Include="Views\VerbosTarjeta\Edit.cshtml" />
+    <Content Include="Views\VerbosTarjeta\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,11 +1,15 @@
-﻿@model IEnumerable<BloomSoft_V2.Models.PartidaJuego>
+﻿@using Microsoft.AspNet.Identity
+@model IEnumerable<BloomSoft_V2.Models.PartidaJugador>
 
 @{
-    
-    var ultimo = 0;
-    foreach (var item in Model)
+
+    var id_partida = 0;
+    foreach (var partida in Model)
     {
-        ultimo = item.id_partidaJuego;
+        if (partida.id_usuario == User.Identity.GetUserId() && partida.PartidaJuego.estado == true)
+        {
+            id_partida = partida.id_partidaJuego;
+        }
     }
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.title = "PartidaJuego";
@@ -158,7 +162,7 @@
                 background-repeat: no-repeat;
             }
 
-       
+
 
         div.edit {
             width: 200px;
@@ -243,15 +247,30 @@
             font-size: 40px;
             font-weight: bold;
             transition: 0.3s;
-            }
+        }
 
             .close:hover,
             .close:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
+                color: #bbb;
+                text-decoration: none;
+                cursor: pointer;
             }
 
+        div.jugador {
+            width: 60px;
+            height: 60px;
+            background-image: url('../Imagenes/usuario_azul.png');
+            background-repeat: no-repeat;
+            background-size: 60px 60px;
+        }
+
+        div.jugadoractivo {
+            width: 60px;
+            height: 60px;
+            background-image: url('../Imagenes/usuario_rojo.png');
+            background-repeat: no-repeat;
+            background-size: 60px 60px;
+        }
     </style>
 
 
@@ -323,17 +342,17 @@
                         </div>
                         <div id="collapseTwo" class="panel-collapse collapse in">
                             <div class="panel-body">
-
-
-                                @foreach (var item in Model)
-                                {
-                                    if (ultimo == item.id_partidaJuego)
+                                <lu class="list-group">
+                                    @foreach (var partida in Model)
                                     {
-                                        @Html.DisplayFor(modelItem => item.AspNetUsers.UserName)
+                                        if (id_partida == partida.id_partidaJuego)
+                                        {
+                                            <td>
+                                                @partida.AspNetUsers.UserName
+                                            </td>
+                                        }
                                     }
-
-                                }
-
+                                </lu>
                             </div>
                         </div>
                     </div>
@@ -436,15 +455,39 @@
                 </div>
 
             </div>
+            <div class="form-group">
+                <div class="row">
+                    @foreach (var partida in Model)
+                    {
+                        if (id_partida == partida.id_partidaJuego)
+                        {
+                            var nombre = partida.AspNetUsers.UserName.Substring(0, 10);
+                            <div class="col-sm-1">
+                                @if (partida.turno == false)
+                                {
+                                    <div class="jugador"></div>
+                                    <p class="small">@nombre</p>
+                                }
+                                else
+                                {
+                                    <div class="jugadoractivo"></div>
+                                    <p class="small">@nombre</p>
+                                    <a class="btn btn-primary" href="~/Views/Home/GameBoard/@partida.id_partidaJuego">Lanzar</a>
+                                }
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
 
             <div style="margin-top:-153px; float:left; margin-left:90%">
                 <a href="@Url.Action("Index", "Edicion")"><div class="edit"></div></a>
-               
+
             </div>
-            
+
         </div>
-        </div>
-    
+    </div>
+
 </body>
 </html>
 
