@@ -73,7 +73,7 @@ namespace BloomSoft_V2.Controllers
             {
                 return RedirectToAction("Index", "HomeController");
             }
-            return View(partJuego);
+            return View();
         }
         /*//Funcion para cambiar el turno
         public ActionResult GameBoard(int id_part)
