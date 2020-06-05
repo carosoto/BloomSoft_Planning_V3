@@ -110,18 +110,20 @@ namespace BloomSoft_V2.Controllers
         */
 
         //[Authorize]
+        /*
         public ActionResult ContinuarPartida()
         {
 
 
-            var partidaJuego = db.PartidaJuego;
-            if (partidaJuego == null)
+            var partidaJugador = db.PartidaJugador;
+            if (partidaJugador == null)
             {
                 return RedirectToAction("Index", "HomeController");
 
             }
-            return View(partidaJuego);
+            return View(partidaJugador);
         }
+        */
     }
 
 }
