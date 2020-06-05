@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -14,7 +15,7 @@ namespace BloomSoft_V2.Controllers
     public class EdicionController : Controller
     {
         BSModel db = new BSModel();
-
+        
 
 
         public ActionResult Index()
@@ -82,29 +83,26 @@ namespace BloomSoft_V2.Controllers
 
             public ActionResult Edit(int? id)
             {
-            if (id == null)
-            {
+              if (id == null)
+              {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+              }
             Edicion edicion = new Edicion();
             edicion.tarjetaModels1 = db.TarjetaRequerim.Find(id);
-           
-            
-            if (edicion == null)
-            {
+                      
+              if (edicion == null)
+              {
                 return HttpNotFound();
-            }
-            return View(edicion);
-        }
+              }
+               return View(edicion);
+            }  
 
         [HttpPost]
         public ActionResult Edit(Edicion edicion)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(edicion.tarjetaModels1).State = EntityState.Modified;
-               
-                
+                db.Entry(edicion.tarjetaModels1).State = EntityState.Modified;      
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -117,8 +115,9 @@ namespace BloomSoft_V2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Edicion edicion = new Edicion();          
-            edicion.tareaModels1 = db.Tarea.Find(id);         
+            Edicion edicion = new Edicion();
+            edicion.tareaModels1= db.Tarea.Find(id);
+
             if (edicion == null)
             {
                 return HttpNotFound();
@@ -145,11 +144,13 @@ namespace BloomSoft_V2.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Edicion edicion = new Edicion();
-            edicion.verboModels1 = db.Verbotax.Find(id);
+            edicion.verbotarjetaModels1 = db.VerbosTarjeta.Find(id);
             if (edicion == null)
             {
                 return HttpNotFound();
             }
+            ViewBag.id_verbo = new SelectList(db.Verbotax, "id_verbo", "verbos", edicion.verbotarjetaModels1.id_verbo);
+            
             return View(edicion);
         }
 
@@ -158,10 +159,11 @@ namespace BloomSoft_V2.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(edicion.verboModels1).State = EntityState.Modified;
-                db.SaveChanges();
+                db.Entry(edicion.verbotarjetaModels1).State = EntityState.Modified;
+                db.SaveChanges();               
                 return RedirectToAction("Index");
             }
+           
             return View(edicion);
         }
     }

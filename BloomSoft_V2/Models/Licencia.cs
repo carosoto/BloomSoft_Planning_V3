@@ -19,6 +19,9 @@ namespace BloomSoft_V2.Models
 
         public int tiempo { get; set; }
 
+        [StringLength(30)]
+        public string nombre { get; set; }
+
         public virtual LicenciaUsuario LicenciaUsuario { get; set; }
     }
 }

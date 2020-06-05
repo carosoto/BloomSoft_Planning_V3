@@ -75,6 +75,9 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.descripcion)
                         </td>
+                        <td>
+                            @Html.ActionLink("Edit2", "Edit2", new { id = item.id_tarea })
+                        </td>
                     </tr>
                 </tbody>
             }
@@ -90,20 +93,20 @@
                     <th>verbos</th>
                 </tr>
             </thead>
-            @foreach (var item in Model.verboModels)
+            @foreach (var item in Model.verbotarjetaModels)
             {
                 <tbody>
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.verbos)
+                            @Html.DisplayFor(modelItem => item.Verbotax.verbos)
                         </td>
                         <td>
-                            @Html.ActionLink("Edit3", "Edit3", new { id = item.id_verbo })
-
+                            @Html.ActionLink("Edit3", "Edit3", new { id = item.id_verbostarjeta })
                         </td>
                     </tr>
                 </tbody>
             }
+           
         </table>
     </div>
 </div>

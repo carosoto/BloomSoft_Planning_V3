@@ -9,15 +9,13 @@ namespace BloomSoft_V2.Models
     [Table("Tarea")]
     public partial class Tarea
     {
-        [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        
         public int id_tarjetaRequerim { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [StringLength(200)]
         public string descripcion { get; set; }
+
+        [Key]
+        public int id_tarea { get; set; }
 
         public virtual TarjetaRequerim TarjetaRequerim { get; set; }
     }

@@ -137,4 +137,7 @@ VALUES ('6','Opinar');
 INSERT INTO Verbotax (nivel_tax,verbos) 
 VALUES ('6','Relacionar');
 
+/*ALTER TABLE dbo.Tarea
+ADD id_tarea INT UNIQUE IDENTITY(1,1) NOT NULL*/
 
+ALTER TABLE Tarea ADD PRIMARY KEY (id_tarea);
