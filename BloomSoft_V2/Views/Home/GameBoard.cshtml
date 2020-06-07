@@ -410,24 +410,24 @@
             </script>
 
             @*<div class="row">
-            <div class="column">
-                <div class="card">
-                    <img src="~/Imagenes/Analisis.png" class="card-img-top" alt="Analisis">
-                </div>
-            </div>
+                    <div class="column">
+                        <div class="card">
+                            <img src="~/Imagenes/Analisis.png" class="card-img-top" alt="Analisis">
+                        </div>
+                    </div>
 
-            <div class="column">
-                <div class="card">
-                    <img src="~/Imagenes/Comprension.png" class="card-img-top" alt="Comprension">
-                </div>
-            </div>
+                    <div class="column">
+                        <div class="card">
+                            <img src="~/Imagenes/Comprension.png" class="card-img-top" alt="Comprension">
+                        </div>
+                    </div>
 
-            <div class="column">
-                <div class="card">
-                    <img src="~/Imagenes/Conocimiento.png" class="card-img-top" alt="Conocimiento">
-                </div>
-            </div>
-        </div>*@
+                    <div class="column">
+                        <div class="card">
+                            <img src="~/Imagenes/Conocimiento.png" class="card-img-top" alt="Conocimiento">
+                        </div>
+                    </div>
+                </div>*@
 
 
 
@@ -473,7 +473,8 @@
                                 {
                                     <div class="jugadoractivo"></div>
                                     <p class="small">@nombre</p>
-                                    <a class="btn btn-primary" href="~/Views/Home/GameBoard/@partida.id_partidaJuego">Lanzar</a>
+                                    <input type="button" class="btn btn-primary" id="@partida.id_partidaJugador" value="Lanzar" onclick="cambiarTurno();" />
+                                    //<a class="btn btn-primary" href="~/Views/Home/GameBoard/@partida.id_partidaJuego">Lanzar</a>
                                 }
                             </div>
                         }
@@ -489,7 +490,48 @@
 
         </div>
     </div>
+    <!--
+    <script language="javaScript">
+        function cambiarTurno()
+        {
+            var cantidad = 0;
+            var contador = 0;
+            var contador2 = 0;
+            foreach (var partida in Model)
+            {
+                cantidad =
+            }
 
+            foreach (var partida in Model)
+            {
+                if (id_partida == partida.id_partidaJuego)
+                {
+                    var nombre = partida.AspNetUsers.UserName.Substring(0, 10);
+                }
+                cantidad++;
+                foreach(var partida in part)
+                {
+                    contador++;
+                    if (partida.turno == true)
+                        db.PartidaJugador.Find(partida.id_partidaJugador).turno = false;
+                    if (contador == cantidad)
+                        contador = 1;
+                }
+                foreach(var partida in part)
+                {
+                    contador2++;
+                    if (contador + 1 == contador2)
+                        db.PartidaJugador.Find(partida.id_partidaJugador).turno = true;
+                }
+                db.SaveChanges();
+
+                var partJuego = db.PartidaJugador;
+                if (partJuego == null) {
+                    return RedirectToAction("Index", "HomeController");
+                }
+            }
+    </script>
+        -->
 </body>
 </html>
 

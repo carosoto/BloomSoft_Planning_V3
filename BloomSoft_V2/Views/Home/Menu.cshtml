@@ -1,4 +1,5 @@
-﻿@model BloomSoft_V2.Models.Proyecto
+﻿@using Microsoft.AspNet.Identity;
+@model IEnumerable<BloomSoft_V2.Models.Proyecto>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -201,7 +202,20 @@
                     <h1>
                         Acceso Rápido
                     </h1>
-
+                </div>
+                <div class="row">
+                    <h3>Mis proyectos</h3>
+                    <select>
+                        <!--
+                            foreach (var itProyecto in Model)
+                            {
+                                if (itProyecto.id_usuario == User.Identity.GetUserId())
+                                {
+                                    <option value="itProyecto.id_proyecto">itProyecto.nombre</option>
+                                }
+                            }
+                            -->
+                    </select>
                 </div>
             </div>
         </div>

@@ -43,7 +43,6 @@ namespace BloomSoft_V2.Controllers
             var currentUser = User.Identity.GetUserId();
 
             var usuario = db.AspNetUsers.ToList().Where(d => d.Id == currentUser);
-            ViewBag.id_usuario = new SelectList(usuario, "Id", "Email");
             return View();
         }
 
@@ -52,18 +51,15 @@ namespace BloomSoft_V2.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_proyecto,nombre,id_usuario,estado,interaciones")] Proyecto proyecto)
+        public ActionResult Create([Bind(Include = "id_proyecto,nombre")] Proyecto proyecto)
         {
+            proyecto.id_usuario = User.Identity.GetUserId();
             if (ModelState.IsValid)
             {
                 db.Proyecto.Add(proyecto);
                 db.SaveChanges();
-                return RedirectToAction("Create", "PartidaJuego");
+                return RedirectToAction("Menu", "Home");
             }
-            var currentUser = User.Identity.GetUserId();
-
-            var usuario = db.AspNetUsers.ToList().Where(d => d.Id == currentUser);
-            ViewBag.id_usuario = new SelectList(usuario, "Id", "Email", proyecto.id_usuario);
             return View(proyecto);
         }
 
