@@ -43,7 +43,12 @@ namespace BloomSoft_V2.Controllers
             ViewBag.id_proyecto = new SelectList(db.Proyecto, "id_proyecto", "nombre");
            
             ViewBag.id_partidaJuego = new SelectList(db.PartidaJuego, "id_partidaJuego", "id_usuario");*/
-            return View();
+            var proyectos = db.Proyecto;
+            if (proyectos == null)
+            {
+                return RedirectToAction("Index", "HomeController");
+            }
+            return View(proyectos);
         }
 
         /*[Authorize]

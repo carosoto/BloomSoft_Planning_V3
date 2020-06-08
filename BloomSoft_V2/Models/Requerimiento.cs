@@ -20,6 +20,8 @@ namespace BloomSoft_V2.Models
 
         public int id_proyecto { get; set; }
 
+        public string descripcion { get; set; }
+
         public virtual Proyecto Proyecto { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

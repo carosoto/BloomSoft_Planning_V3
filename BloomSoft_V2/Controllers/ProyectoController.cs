@@ -51,8 +51,9 @@ namespace BloomSoft_V2.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_proyecto,nombre")] Proyecto proyecto)
+        public ActionResult Create([Bind(Include = "nombre")] Proyecto proyecto)
         {
+
             proyecto.id_usuario = User.Identity.GetUserId();
             if (ModelState.IsValid)
             {
@@ -60,6 +61,13 @@ namespace BloomSoft_V2.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Menu", "Home");
             }
+            return View(proyecto);
+        }
+
+        [HttpGet]
+        public ActionResult Changes(int idProyecto)
+        {
+            Proyecto proyecto = db.Proyecto.Find(idProyecto);
             return View(proyecto);
         }
 

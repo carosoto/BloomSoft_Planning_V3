@@ -328,6 +328,7 @@
     <Content Include="Views\VerbosTarjeta\Details.cshtml" />
     <Content Include="Views\VerbosTarjeta\Edit.cshtml" />
     <Content Include="Views\VerbosTarjeta\Index.cshtml" />
+    <Content Include="Views\Proyecto\Changes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,30 @@
+﻿@model BloomSoft_V2.Models.Proyecto
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Changes</title>
+</head>
+<body>
+    <div>
+        <h3>@Model.nombre</h3>
+        <a class="btn btn-primary" href="~/Views/Edicion/Create.cshtml">Agregar requerimiento</a>
+
+
+        @foreach (var itrequerimiento in Model.Requerimiento)
+        {
+            <lu class="list-group">
+                <td>
+                    @itrequerimiento.descripcion;
+                </td>
+            </lu>
+        }
+    </div>
+</body>
+</html>
