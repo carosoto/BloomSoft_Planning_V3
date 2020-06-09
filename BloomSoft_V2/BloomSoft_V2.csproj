@@ -218,6 +218,7 @@
     <Compile Include="Models\ProjectIds.cs" />
     <Compile Include="Models\Proyecto.cs" />
     <Compile Include="Models\Requerimiento.cs" />
+    <Compile Include="Models\Tablero.cs" />
     <Compile Include="Models\Tarea.cs" />
     <Compile Include="Models\TarjetaRequerim.cs" />
     <Compile Include="Models\Taxonomia.cs" />

@@ -99,7 +99,12 @@ namespace BloomSoft_V2.Controllers
         //[Authorize]
         public ActionResult GameBoard()
         {
-            var partJuego = db.PartidaJugador;
+
+            var partJuego = new Tablero
+            {
+                JugadorModel = db.PartidaJugador,
+            
+            };
             if (partJuego == null)
             {
                 return RedirectToAction("Index", "HomeController");

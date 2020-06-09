@@ -1,11 +1,12 @@
 ﻿@using Microsoft.AspNet.Identity
-@model IEnumerable<BloomSoft_V2.Models.PartidaJugador>
+
+@model BloomSoft_V2.Models.Tablero
 @using BloomSoft_V2.Models
 
 @{
 
     var id_partida = 0;
-    foreach (var partida in Model)
+    foreach (var partida in Model.JugadorModel)
     {
         if (partida.id_usuario == User.Identity.GetUserId() && partida.PartidaJuego.estado == true)
         {
@@ -37,10 +38,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    
 
 
     <title></title>
+
+    
     <style>
         .card {
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -178,6 +182,8 @@
                 background-repeat: no-repeat;
             }
 
+
+
         div.lanzar {
             width: 100px;
             height: 150px;
@@ -272,6 +278,14 @@
             background-repeat: no-repeat;
             background-size: 60px 60px;
         }
+
+        .tarjetalanzar {
+            width: 15%;
+            border: #3b3879 3px solid;
+            margin-left: auto;
+            margin-right: auto;
+        }
+       
     </style>
 
 
@@ -344,7 +358,7 @@
                         <div id="collapseTwo" class="panel-collapse collapse in">
                             <div class="panel-body">
                                 <lu class="list-group">
-                                    @foreach (var partida in Model)
+                                    @foreach (var partida in Model.JugadorModel)
                                     {
                                         if (id_partida == partida.id_partidaJuego)
                                         {
@@ -407,27 +421,37 @@
                 span.onclick = function () {
                     modal.style.display = "none";
                 }
+
+                function toggle_visibility(id) {
+                    var e = document.getElementById(id);
+                    if (e.style.display == 'block')
+                        e.style.display = 'none';
+                    else
+                        e.style.display = 'block';
+                }
             </script>
 
+            
+
             @*<div class="row">
-                    <div class="column">
-                        <div class="card">
-                            <img src="~/Imagenes/Analisis.png" class="card-img-top" alt="Analisis">
-                        </div>
-                    </div>
+            <div class="column">
+                <div class="card">
+                    <img src="~/Imagenes/Analisis.png" class="card-img-top" alt="Analisis">
+                </div>
+            </div>
 
-                    <div class="column">
-                        <div class="card">
-                            <img src="~/Imagenes/Comprension.png" class="card-img-top" alt="Comprension">
-                        </div>
-                    </div>
+            <div class="column">
+                <div class="card">
+                    <img src="~/Imagenes/Comprension.png" class="card-img-top" alt="Comprension">
+                </div>
+            </div>
 
-                    <div class="column">
-                        <div class="card">
-                            <img src="~/Imagenes/Conocimiento.png" class="card-img-top" alt="Conocimiento">
-                        </div>
-                    </div>
-                </div>*@
+            <div class="column">
+                <div class="card">
+                    <img src="~/Imagenes/Conocimiento.png" class="card-img-top" alt="Conocimiento">
+                </div>
+            </div>
+        </div>*@
 
 
 
@@ -458,7 +482,7 @@
             </div>
             <div class="form-group">
                 <div class="row">
-                    @foreach (var partida in Model)
+                    @foreach (var partida in Model.JugadorModel)
                     {
                         if (id_partida == partida.id_partidaJuego)
                         {
@@ -480,58 +504,101 @@
                         }
                     }
                 </div>
-                <button type="button" class="btn btn-primary">Lanzar</button>
+
             </div>
 
             <div style="margin-top:-700px; float:left; margin-left:88%">
                 <a href="@Url.Action("Index", "Edicion")"><div class="edit"></div></a>
-
             </div>
 
+            <div style="margin-top:-550px; float:left; margin-left:96%">
+                <button type="button" class="btn btn-primary" onclick="toggle_visibility('tarjeta');">Lanzar</button>
+            </div>
+
+            <div id="tarjeta" class="tarjetalanzar" style="margin-top:-500px; float:left; margin-left:88%">
+                <div class="row">
+                    <div class="col-md-9 col-md-offset-3">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.edicionM.tarjetaModels1.nivel_tax, "nivel_tax", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.edicionM.tarjetaModels1.nivel_tax, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.edicionM.tarjetaModels1.nivel_tax, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.edicionM.tarjetaModels1.tiempo, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.edicionM.tarjetaModels1.tiempo, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.edicionM.tarjetaModels1.tiempo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.edicionM.tarjetaModels1.dificultad, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.edicionM.tarjetaModels1.dificultad, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.edicionM.tarjetaModels1.dificultad, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.edicionM.tareaModels1.descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.edicionM.tareaModels1.descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.edicionM.tareaModels1.descripcion, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <!--
-    <script language="javaScript">
-        function cambiarTurno()
-        {
-            var cantidad = 0;
-            var contador = 0;
-            var contador2 = 0;
-            foreach (var partida in Model)
+        <!--
+        <script language="javaScript">
+            function cambiarTurno()
             {
-                cantidad =
-            }
+                var cantidad = 0;
+                var contador = 0;
+                var contador2 = 0;
+                foreach (var partida in Model)
+                {
+                    cantidad =
+                }
 
-            foreach (var partida in Model)
-            {
-                if (id_partida == partida.id_partidaJuego)
+                foreach (var partida in Model)
                 {
-                    var nombre = partida.AspNetUsers.UserName.Substring(0, 10);
-                }
-                cantidad++;
-                foreach(var partida in part)
-                {
-                    contador++;
-                    if (partida.turno == true)
-                        db.PartidaJugador.Find(partida.id_partidaJugador).turno = false;
-                    if (contador == cantidad)
-                        contador = 1;
-                }
-                foreach(var partida in part)
-                {
-                    contador2++;
-                    if (contador + 1 == contador2)
-                        db.PartidaJugador.Find(partida.id_partidaJugador).turno = true;
-                }
-                db.SaveChanges();
+                    if (id_partida == partida.id_partidaJuego)
+                    {
+                        var nombre = partida.AspNetUsers.UserName.Substring(0, 10);
+                    }
+                    cantidad++;
+                    foreach(var partida in part)
+                    {
+                        contador++;
+                        if (partida.turno == true)
+                            db.PartidaJugador.Find(partida.id_partidaJugador).turno = false;
+                        if (contador == cantidad)
+                            contador = 1;
+                    }
+                    foreach(var partida in part)
+                    {
+                        contador2++;
+                        if (contador + 1 == contador2)
+                            db.PartidaJugador.Find(partida.id_partidaJugador).turno = true;
+                    }
+                    db.SaveChanges();
 
-                var partJuego = db.PartidaJugador;
-                if (partJuego == null) {
-                    return RedirectToAction("Index", "HomeController");
+                    var partJuego = db.PartidaJugador;
+                    if (partJuego == null) {
+                        return RedirectToAction("Index", "HomeController");
+                    }
                 }
-            }
-    </script>
-        -->
-</body>
+        </script>
+            -->
+     </body>
 </html>
 
