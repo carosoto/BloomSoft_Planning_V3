@@ -24,13 +24,12 @@ namespace BloomSoft_V2.Models
         [StringLength(200)]
         public string nombre { get; set; }
 
-        [Required]
         [StringLength(128)]
         public string id_usuario { get; set; }
 
         public bool estado { get; set; }
 
-        public int? interaciones { get; set; }
+        public int interaciones { get; set; }
 
         public virtual AspNetUsers AspNetUsers { get; set; }
 

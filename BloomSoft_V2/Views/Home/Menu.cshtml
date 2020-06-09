@@ -205,24 +205,30 @@
                 </div>
                 <div class="row">
                     <h3>Mis proyectos</h3>
-                    <select>
-                        <!--
-                            foreach (var itProyecto in Model)
+                    <select id="idProyecto">
+
+                        @foreach (var itProyecto in Model)
+                        {
+                            if (itProyecto.id_usuario == User.Identity.GetUserId())
                             {
-                                if (itProyecto.id_usuario == User.Identity.GetUserId())
-                                {
-                                    <option value="itProyecto.id_proyecto">itProyecto.nombre</option>
-                                }
+                                <option value="@itProyecto.id_proyecto">@itProyecto.nombre</option>
                             }
-                            -->
+                        }
                     </select>
+                    <a class="btn btn-primary" href="javascript:getURL()">Visualizar</a>
                 </div>
             </div>
         </div>
     </div>
 
+    <script type="text/javascript">
+        function getURL() {
+            var dir = "/Proyecto/Changes/?idProyecto=";
+            dir += document.getElementById('idProyecto').value;
+            window.location.href = dir;
+        }
+    </script>
 </body>
-
 
 </html>
 
