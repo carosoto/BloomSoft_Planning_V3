@@ -65,7 +65,7 @@
                                 <table class="table">
                                     <tr>
                                         <td>
-                                            <span class="glyphicon glyphicon-pencil text-primary"></span><a href="@Url.Action("Create", "Proyecto")">Nuevo Equipo</a>
+                                            <span class="glyphicon glyphicon-pencil text-primary"></span><a href="@Url.Action("Create", "Proyecto")">Nuevo Proyecto</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -204,27 +204,39 @@
                     </h1>
                 </div>
                 <div class="row">
-                    <h3>Mis proyectos</h3>
-                    <select id="idProyecto">
+                    <div>
+                        <h3>Colaborar en un proyecto</h3>
+                        <label>ID de Proyecto:</label>
+                        <input type="text" id="id_proyecto" placeholder="100000000" />
+                        <a class="btn btn-primary" href="javascript:getURLunirse()">Unirse</a>
 
-                        @foreach (var itProyecto in Model)
-                        {
-                            if (itProyecto.id_usuario == User.Identity.GetUserId())
+                        <h3>Mis proyectos</h3>
+                        <select id="idProyecto">
+                            @foreach (var itProyecto in Model)
                             {
-                                <option value="@itProyecto.id_proyecto">@itProyecto.nombre</option>
+                                foreach (var itParticipante in itProyecto.Participante)
+                                {
+                                    if (itParticipante.id_proyecto == itProyecto.id_proyecto && itParticipante.id_usuario == User.Identity.GetUserId())
+                                    {
+                                            <option value="@itProyecto.id_proyecto">@itProyecto.nombre</option>
+                                    }
+                                }
                             }
-                        }
-                    </select>
-                    <a class="btn btn-primary" href="javascript:getURL()">Visualizar</a>
+                        </select>
+                        <a class="btn btn-primary" href="javascript:getURL()">Visualizar</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
     <script type="text/javascript">
         function getURL() {
             var dir = "/Proyecto/Changes/?idProyecto=";
             dir += document.getElementById('idProyecto').value;
+            window.location.href = dir;
+        }
+        function getURLunirse() {
+            var dir = "/Participantes/Unirse/?id_proyecto=";
+            dir += document.getElementById('id_proyecto').value;
             window.location.href = dir;
         }
     </script>

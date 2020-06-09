@@ -51,6 +51,32 @@ namespace BloomSoft_V2.Controllers
             return View(proyectos);
         }
 
+        /*
+        [HttpGet]
+        public ActionResult Menu(int? id)
+        {
+            var proyectos = db.Proyecto;
+            if(id != null)
+            foreach (var itProyecto in proyectos)
+            {
+                if (itProyecto.id_proyecto == id)
+                {
+                    Participante nuevo = new Participante();
+                    nuevo.id_usuario = User.Identity.GetUserId();
+                    nuevo.id_proyecto = id;
+                    nuevo.tipo = 1;
+                    db.Participante.Add(nuevo);
+                    db.SaveChanges();
+                    if (proyectos == null)
+                    {
+                        return RedirectToAction("Index", "HomeController");
+                    }
+                    return View(proyectos);
+                }
+            }
+            return View();
+        }
+        */
         /*[Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]

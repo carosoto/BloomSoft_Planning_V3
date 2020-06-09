@@ -186,6 +186,7 @@
     <Compile Include="Controllers\EdicionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ParticipantesController.cs" />
     <Compile Include="Controllers\PartidaJuegoController.cs" />
     <Compile Include="Controllers\PartidaJugadorController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
@@ -329,6 +330,12 @@
     <Content Include="Views\VerbosTarjeta\Edit.cshtml" />
     <Content Include="Views\VerbosTarjeta\Index.cshtml" />
     <Content Include="Views\Proyecto\Changes.cshtml" />
+    <Content Include="Views\Participantes\Create.cshtml" />
+    <Content Include="Views\Participantes\Delete.cshtml" />
+    <Content Include="Views\Participantes\Details.cshtml" />
+    <Content Include="Views\Participantes\Edit.cshtml" />
+    <Content Include="Views\Participantes\Index.cshtml" />
+    <Content Include="Views\Participantes\Unirse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
