@@ -59,7 +59,10 @@ namespace BloomSoft_V2.Controllers
             {
                 db.Proyecto.Add(proyecto);
                 db.SaveChanges();
-                return RedirectToAction("Menu", "Home");
+                //return RedirectToAction("Menu", "Home");
+                return Redirect("/Participantes/Unirse/?id_proyecto=" + proyecto.id_proyecto);
+
+
             }
             return View(proyecto);
         }

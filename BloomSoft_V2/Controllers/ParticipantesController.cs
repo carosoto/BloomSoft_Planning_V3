@@ -137,29 +137,39 @@ namespace BloomSoft_V2.Controllers
         [HttpGet]
         public ActionResult Unirse([Bind(Include = "id_proyecto")] Participante participante)
         {
-            var valido = false;
+            var valido = true;
             var proyectos = db.Proyecto;
             var participantes = db.Participante;
             if (participante.id_proyecto != 0)
             {
-                    
                 participante.id_usuario = User.Identity.GetUserId();
                 participante.tipo = 1;
                 db.Participante.Add(participante);
                 foreach (var itParticipante in participantes)
+                {
                     if (itParticipante.id_proyecto == participante.id_proyecto && participante.id_usuario == User.Identity.GetUserId())
-                        valido = false;
-                    if(valido == true)
                     {
+                        valido = false;
+                    }
+                }
+                if(valido == true)
+                {
+                    valido = false;
+                    foreach (var itProyecto in proyectos)
+                    {
+                        if (itProyecto.id_proyecto == participante.id_proyecto)
+                            valido = true;
+                    }
+                    if (valido == true)
+                    {
+                        db.SaveChanges();
                         foreach (var itProyecto in proyectos)
-                            if (itProyecto.id_proyecto == participante.id_proyecto)
-                                valido = true;
-                        if (valido == true)
-                            db.SaveChanges();
-                        foreach (var itProyecto in proyectos)
+                        {
                             if (itProyecto.id_proyecto == participante.id_proyecto)
                                 return View(itProyecto);
+                        }
                     }
+                }
             }
             return RedirectToAction("Menu", "Home");
         }
