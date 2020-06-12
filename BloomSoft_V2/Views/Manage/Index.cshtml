@@ -3,110 +3,192 @@
     ViewBag.Title = "Bienvenid@";
 }
 
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 <h2>@ViewBag.Title.</h2>
+<head>
+    <style>
+        .progress {
+            width: 150px;
+            height: 150px;
+            line-height: 150px;
+            background: none;
+            margin: 0 auto;
+            box-shadow: none;
+            position: relative;
+        }
+
+            .progress:after {
+                content: "";
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                border: 12px solid #fff;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            .progress > span {
+                width: 50%;
+                height: 100%;
+                overflow: hidden;
+                position: absolute;
+                top: 0;
+                z-index: 1;
+            }
+
+            .progress .progress-left {
+                left: 0;
+            }
+
+            .progress .progress-bar {
+                width: 100%;
+                height: 100%;
+                background: none;
+                border-width: 12px;
+                border-style: solid;
+                position: absolute;
+                top: 0;
+            }
+
+            .progress .progress-left .progress-bar {
+                left: 100%;
+                border-top-right-radius: 80px;
+                border-bottom-right-radius: 80px;
+                border-left: 0;
+                -webkit-transform-origin: center left;
+                transform-origin: center left;
+            }
+
+            .progress .progress-right {
+                right: 0;
+            }
+
+                .progress .progress-right .progress-bar {
+                    left: -100%;
+                    border-top-left-radius: 80px;
+                    border-bottom-left-radius: 80px;
+                    border-right: 0;
+                    -webkit-transform-origin: center right;
+                    transform-origin: center right;
+                    animation: loading-1 1.8s linear forwards;
+                }
+
+            .progress .progress-value {
+                width: 90%;
+                height: 90%;
+                border-radius: 50%;
+                background: #44484b;
+                font-size: 24px;
+                color: #fff;
+                line-height: 135px;
+                text-align: center;
+                position: absolute;
+                top: 5%;
+                left: 5%;
+            }
+
+            .progress.blue .progress-bar {
+                border-color: #049dff;
+            }
+
+            .progress.blue .progress-left .progress-bar {
+                animation: loading-2 1.5s linear forwards 1.8s;
+            }
+
+            .progress.yellow .progress-bar {
+                border-color: #fdba04;
+            }
+
+            .progress.yellow .progress-left .progress-bar {
+                animation: loading-3 1s linear forwards 1.8s;
+            }
+
+            .progress.pink .progress-bar {
+                border-color: #ed687c;
+            }
+
+            .progress.pink .progress-left .progress-bar {
+                animation: loading-4 0.4s linear forwards 1.8s;
+            }
+
+            .progress.green .progress-bar {
+                border-color: #1abc9c;
+            }
+
+            .progress.green .progress-left .progress-bar {
+                animation: loading-5 1.2s linear forwards 1.8s;
+            }
+
+    @@keyframes loading-1{
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
+@@keyframes loading-2{
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(144deg);
+        transform: rotate(144deg);
+    }
+}
+@@keyframes loading-3{
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+}
+@@keyframes loading-4{
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(36deg);
+        transform: rotate(36deg);
+    }
+}
+@@keyframes loading-5{
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(126deg);
+        transform: rotate(126deg);
+    }
+}
+@@media only screen and (max-width: 990px){
+    .progress{ margin-bottom: 20px; }
+}
+
+    </style>
+</head>
+
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
     <h4>Aquí podrás ver la información referente a tu perfil en BloomSoft Planning</h4>
-    <hr />
 
     <div class="container">
         <div class="row">
             <div class="col-sm-3 col-md-3">
                 <div class="panel-group" id="accordion">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                    <span class="glyphicon glyphicon-folder-close">
-                                    </span> Juego
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseOne" class="panel-collapse collapse in">
-                            <div class="panel-body">
-                                <table class="table">
-                                    <tr>
-                                        <td>
-                                            <span class="glyphicon glyphicon-pencil text-primary"></span><a href="@Url.Action("Create", "Proyecto")">Nuevo Proyecto</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="glyphicon glyphicon-flash text-success"></span><a href="@Url.Action("GameBoard", "Home")">Continuar Juego</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="glyphicon glyphicon-plus text-warning"></span><a href="#" data-toggle="modal" data-target="#exampleModal">Unirse a juego</a>
-
-                                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="ModalLabel">Unirse a un juego</h5>
-                                                            <button type="button" class="close" style="color: red" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <form>
-                                                                <!--<div class="form-group">
-                                                                <label for="recipient-name" class="col-form-label">ID de la partida:</label>
-                                                                <input type="text" class="form-control" id="recipient-name">
-                                                            </div>-->
-                                                                <div class="form-group">
-                                                                    <label for="FormControlSelect1">ID de la partida:</label>
-                                                                    <select class="form-control" id="FormControlSelect1">
-                                                                        <option>1</option>
-                                                                        <option>2</option>
-                                                                        <option>3</option>
-                                                                    </select>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                            <button type="button" class="btn btn-primary" style="background-color:#3b3879">Unirse</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="glyphicon glyphicon-file text-info"></span><a href="@Url.Action("GameBoard", "Home")">Nuevo Juego</a>
-                                        </td>
-                                    </tr>
-
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                    <span class="glyphicon glyphicon-th">
-                                    </span>Resultados
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseTwo" class="panel-collapse collapse in">
-                            <div class="panel-body">
-                                <table class="table">
-                                    <tr>
-                                        <td>
-                                            <a class="glyphicon glyphicon-file text-info" href="#">Archivos</a>
-                                        </td>
-                                    </tr>
-
-                                </table>
-                            </div>
-                        </div>
-                    </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
@@ -136,6 +218,31 @@
                         </div>
                     </div>
 
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                    <span class="glyphicon glyphicon-file">
+                                    </span>Menu de partida
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <table class="table">
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-check"></span><a onclick="location.href='@Url.Action("Menu","Home")'"> Menu</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
@@ -150,10 +257,9 @@
                                 <table class="table">
                                     <tr>
                                         <td>
-                                            <span class="glyphicon glyphicon-usd"></span><a onclick="location.href='@Url.Action("Premium","Home")'">Prueba BloomSoft Premium</a>
+                                            <span class="glyphicon glyphicon-usd"></span><a onclick="location.href='@Url.Action("Premium","Home")'"> Prueba BloomSoft Premium</a>
                                         </td>
                                     </tr>
-
                                 </table>
                             </div>
                         </div>
@@ -161,81 +267,89 @@
                 </div>
             </div>
 
-            <!--
-        <dl class="dl-horizontal">
-            <dt>Contraseña:</dt>
-            <dd>
-                [
-                @if (Model.HasPassword)
-                {
-                    @Html.ActionLink("Cambiar la contraseña", "ChangePassword")
-                }
-                else
-                {
-                    @Html.ActionLink("Crear", "SetPassword")
-                }
-                ]
-            </dd>
-            <dt>Inicios de sesión externos:</dt>
-            <dd>
-                @Model.Logins.Count [
-                @Html.ActionLink("Administrar", "ManageLogins") ]
-            </dd>
-            @*
-                Los números de teléfono se pueden usar como una segunda fase de comprobación en un sistema de autenticación en dos fases.
+            <div class="col-sm-9 col-md-9">
+                <div class="well">
+                    <h1>
+                        Tus estadísticas
+                    </h1>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="progress blue">
+                                <span class="progress-left">
+                                    <span class="progress-bar"></span>
+                                </span>
+                                <span class="progress-right">
+                                    <span class="progress-bar"></span>
+                                </span>
+                                <div class="progress-value">KNWL</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="progress yellow">
+                                <span class="progress-left">
+                                    <span class="progress-bar"></span>
+                                </span>
+                                <span class="progress-right">
+                                    <span class="progress-bar"></span>
+                                </span>
+                                <div class="progress-value">COMP</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="progress pink">
+                                <span class="progress-left">
+                                    <span class="progress-bar"></span>
+                                </span>
+                                <span class="progress-right">
+                                    <span class="progress-bar"></span>
+                                </span>
+                                <div class="progress-value">ANSYS</div>
+                            </div>
+                        </div>
 
-                 Consulte <a href="https://go.microsoft.com/fwlink/?LinkId=403804">este artículo</a>
-                    para obtener detalles sobre cómo configurar esta aplicación ASP.NET para que sea compatible con la autenticación en dos fases mediante SMS.
+                        
 
-                 Quite la marca de comentario de los bloques siguientes después de configurar la autenticación en dos fases.
-            *@
-            @*
-                <dt>Número de teléfono:</dt>
-                <dd>
-                    @(Model.PhoneNumber ?? "None")
-                    @if (Model.PhoneNumber != null)
-                    {
-                        <br />
-                        <text>[&nbsp;&nbsp;@Html.ActionLink("Change", "AddPhoneNumber")&nbsp;&nbsp;]</text>
-                        using (Html.BeginForm("RemovePhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                        {
-                            @Html.AntiForgeryToken()
-                            <text>[<input type="submit" value="Quitar" class="btn-link" />]</text>
-                        }
-                    }
-                    else
-                    {
-                        <text>[&nbsp;&nbsp;@Html.ActionLink("Add", "AddPhoneNumber")
-                    }
-                </dd>
-            *@
-            <dt>Autenticación de dos factores:</dt>
-            <dd>
-                <p>
-                    No hay ningún proveedor de autenticación en dos fases configurado. Consulte <a href="https://go.microsoft.com/fwlink/?LinkId=403804">este artículo</a>
-                    para obtener detalles sobre cómo configurar esta aplicación ASP.NET para que sea compatible con la autenticación en dos fases.
-                </p>
-                @*@if (Model.TwoFactor)
-                    {
-                        using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                        {
-                            @Html.AntiForgeryToken()
-                            <text>Habilitado
-                            <input type="submit" value="Deshabilitar" class="btn btn-link" />
-                            </text>
-                        }
-                    }
-                    else
-                    {
-                        using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                        {
-                            @Html.AntiForgeryToken()
-                            <text>Deshabilitado
-                            <input type="submit" value="Habilitar" class="btn btn-link" />
-                            </text>
-                        }
-                    }*@
-            </dd>
-        </dl>
-            -->
+                        <div class="container" style="padding-top:15px">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="progress green">
+                                    <span class="progress-left">
+                                        <span class="progress-bar"></span>
+                                    </span>
+                                    <span class="progress-right">
+                                        <span class="progress-bar"></span>
+                                    </span>
+                                    <div class="progress-value">SYNT</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="progress blue">
+                                    <span class="progress-left">
+                                        <span class="progress-bar"></span>
+                                    </span>
+                                    <span class="progress-right">
+                                        <span class="progress-bar"></span>
+                                    </span>
+                                    <div class="progress-value">APP</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="progress yellow">
+                                    <span class="progress-left">
+                                        <span class="progress-bar"></span>
+                                    </span>
+                                    <span class="progress-right">
+                                        <span class="progress-bar"></span>
+                                    </span>
+                                    <div class="progress-value">EVAL</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
+    </div>
+</div>
