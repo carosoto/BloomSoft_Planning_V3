@@ -142,12 +142,9 @@ namespace BloomSoft_V2.Controllers
             var participantes = db.Participante;
             if (participante.id_proyecto != 0)
             {
-                participante.id_usuario = User.Identity.GetUserId();
-                participante.tipo = 1;
-                db.Participante.Add(participante);
                 foreach (var itParticipante in participantes)
                 {
-                    if (itParticipante.id_proyecto == participante.id_proyecto && participante.id_usuario == User.Identity.GetUserId())
+                    if (itParticipante.id_proyecto == participante.id_proyecto && itParticipante.id_usuario == User.Identity.GetUserId())
                     {
                         valido = false;
                     }
@@ -162,6 +159,9 @@ namespace BloomSoft_V2.Controllers
                     }
                     if (valido == true)
                     {
+                        participante.id_usuario = User.Identity.GetUserId();
+                        participante.tipo = 1;
+                        db.Participante.Add(participante);
                         db.SaveChanges();
                         foreach (var itProyecto in proyectos)
                         {

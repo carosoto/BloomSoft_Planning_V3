@@ -337,6 +337,8 @@
     <Content Include="Views\Participantes\Edit.cshtml" />
     <Content Include="Views\Participantes\Index.cshtml" />
     <Content Include="Views\Participantes\Unirse.cshtml" />
+    <Content Include="Views\PartidaJugador\UnirsePartida.cshtml" />
+    <Content Include="Views\PartidaJuego\Nuevo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

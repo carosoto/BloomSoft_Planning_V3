@@ -70,7 +70,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <span class="glyphicon glyphicon-flash text-success"></span><a href="@Url.Action("GameBoard", "Home")">Continuar Juego</a>
+                                            <span class="glyphicon glyphicon-file text-info"></span><a href="@Url.Action("GameBoard", "Home")">Nuevo Juego</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -114,7 +114,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <span class="glyphicon glyphicon-file text-info"></span><a href="@Url.Action("GameBoard", "Home")">Nuevo Juego</a>
+                                            <span class="glyphicon glyphicon-flash text-success"></span><a href="@Url.Action("GameBoard", "Home")">Continuar Juego</a>
                                         </td>
                                     </tr>
 
@@ -205,11 +205,6 @@
                 </div>
                 <div class="row">
                     <div>
-                        <h3>Colaborar en un proyecto</h3>
-                        <label>ID de Proyecto:</label>
-                        <input type="text" id="id_proyecto" placeholder="100000000" />
-                        <a class="btn btn-primary" href="javascript:getURLunirse()">Unirse</a>
-
                         <h3>Mis proyectos</h3>
                         <select id="idProyecto">
                             @foreach (var itProyecto in Model)
@@ -218,12 +213,24 @@
                                 {
                                     if (itParticipante.id_proyecto == itProyecto.id_proyecto && itParticipante.id_usuario == User.Identity.GetUserId())
                                     {
-                                            <option value="@itProyecto.id_proyecto">@itProyecto.nombre</option>
+                                        <option value="@itProyecto.id_proyecto">@itProyecto.nombre</option>
                                     }
                                 }
                             }
                         </select>
                         <a class="btn btn-primary" href="javascript:getURL()">Visualizar</a>
+                        <a class="btn btn-primary" href="javascript:getURLcreaJuego()">Nuevo Juego</a>
+
+                        <h3>Colaborar en un proyecto</h3>
+                        <label>ID de Proyecto:</label>
+                        <input type="text" id="id_proyecto" placeholder="100000000" />
+                        <a class="btn btn-primary" href="javascript:getURLunirse()">Unirse</a>
+
+                        <h3>Unirse a una partida</h3>
+                        <label>ID de Partida:</label>
+                        <input type="text" id="id_partidaJuego" placeholder="100000000" />
+                        <a class="btn btn-primary" href="javascript:getURLunirsePartida()">Unirse</a>
+
                     </div>
                 </div>
             </div>
@@ -234,9 +241,19 @@
             dir += document.getElementById('idProyecto').value;
             window.location.href = dir;
         }
+        function getURLcreaJuego() {
+            var dir = "/PartidaJuego/Nuevo/?id_proyecto=";
+            dir += document.getElementById('idProyecto').value;
+            window.location.href = dir;
+        }
         function getURLunirse() {
             var dir = "/Participantes/Unirse/?id_proyecto=";
             dir += document.getElementById('id_proyecto').value;
+            window.location.href = dir;
+        }
+        function getURLunirsePartida() {
+            var dir = "/PartidaJugador/UnirsePartida/?id_partidaJuego=";
+            dir += document.getElementById('id_partidaJuego').value;
             window.location.href = dir;
         }
     </script>

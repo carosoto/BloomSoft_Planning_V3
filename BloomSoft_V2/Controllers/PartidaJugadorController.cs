@@ -72,6 +72,43 @@ namespace BloomSoft_V2.Controllers
             return View(partidaJugador);
         }
 
+        [HttpGet]
+        public ActionResult UnirsePartida([Bind(Include = "id_partidaJuego")] PartidaJugador partida)
+        {
+            var valido = true;
+            var juegos = db.PartidaJuego;
+            var partidajugador = db.PartidaJugador;
+            if (partida.id_partidaJuego != 0)
+            {
+                foreach (var itPartidaJug in partidajugador)
+                {
+                    if (itPartidaJug.id_partidaJuego == partida.id_partidaJuego && itPartidaJug.id_usuario == User.Identity.GetUserId())
+                    {
+                        valido = false;
+                    }
+                }
+                if (valido == true)
+                {
+                    valido = false;
+                    foreach (var itJuegos in juegos)
+                    {
+                        if (itJuegos.id_partidaJuego == partida.id_partidaJuego)
+                            valido = true;
+                    }
+                    if (valido == true)
+                    {
+                        partida.id_usuario = User.Identity.GetUserId();
+                        partida.puntos = 0;
+                        partida.turno = false;
+                        db.PartidaJugador.Add(partida);
+                        db.SaveChanges();
+                        return RedirectToAction("GameBoard", "Home");
+                    }
+                }
+            }
+            return RedirectToAction("Menu", "Home");
+        }
+
         // GET: PartidaJugador/Edit/5
         public ActionResult Edit(int? id)
         {
