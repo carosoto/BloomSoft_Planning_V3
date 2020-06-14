@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -26,7 +27,9 @@ namespace BloomSoft_V2.Controllers
                 tarjetaModels = db.TarjetaRequerim,
                 tareaModels = db.Tarea,
                 verboModels = db.Verbotax,
-                verbotarjetaModels=db.VerbosTarjeta
+                verbotarjetaModels=db.VerbosTarjeta,
+                requerimientoModels = db.Requerimiento,
+                partidaModels=db.PartidaJugador
             };
 
             return View(edicion);
@@ -40,20 +43,30 @@ namespace BloomSoft_V2.Controllers
                 tarjetaModels = db.TarjetaRequerim,
                 tareaModels = db.Tarea,
                 verboModels = db.Verbotax,
-                verbotarjetaModels = db.VerbosTarjeta
+                verbotarjetaModels = db.VerbosTarjeta,
+                requerimientoModels=db.Requerimiento,
+                partidaModels = db.PartidaJugador
             };
 
             return View(edicion);
         }
-
         
 
         // GET: Edicion/Create
-        public ActionResult Create(int id_r)
+        public ActionResult Create(int id_t, int id_r)
         {
             Edicion edicion = new Edicion();
-            edicion.tareaModels1.id_tarjetaRequerim = id_r;
-            edicion.verbotarjetaModels1.id_tarjetaRequerim = id_r;
+            
+            edicion.tarjetaModels1.id_requerimiento = id_r;
+
+            edicion.requerimientoModels = db.Requerimiento.ToList();
+            edicion.partidaModels = db.PartidaJugador.ToList();
+            var lista = edicion.partidaModels.ToList().Find(p => p.id_usuario == User.Identity.GetUserId());
+            var busqueda = lista.id_partidaJugador;
+            edicion.tarjetaModels1.id_partidaJugador = busqueda;
+            edicion.tarjetaModels1.puntos = 100;
+            edicion.tareaModels1.id_tarjetaRequerim = id_t;
+            edicion.verbotarjetaModels1.id_tarjetaRequerim = id_t;          
             ViewBag.id_verbo = new SelectList(db.Verbotax, "id_verbo", "verbos");
 
             return View(edicion);

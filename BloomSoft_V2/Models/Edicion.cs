@@ -15,20 +15,26 @@ namespace BloomSoft_V2.Models
         public IEnumerable<TarjetaRequerim> tarjetaModels { get; set; }
         public IEnumerable<Tarea> tareaModels { get; set; }
         public IEnumerable<Verbotax> verboModels { get; set; }
-        public IEnumerable<VerbosTarjeta> verbotarjetaModels { get; set; }
+        public IEnumerable<VerbosTarjeta> verbotarjetaModels { get; set; }      
+        public IEnumerable<Requerimiento> requerimientoModels { get; set; }
+        public IEnumerable<PartidaJugador> partidaModels { get; set; }
 
 
         public TarjetaRequerim tarjetaModels1 { get; set; }
         public Tarea tareaModels1 { get; set; }
         public Verbotax verboModels1 { get; set; }
-        public VerbosTarjeta verbotarjetaModels1 { get; set; }
+        public VerbosTarjeta verbotarjetaModels1 { get; set; }  
+        public Requerimiento requerimientoModels1 { get; set; }
+        public PartidaJugador partidaModels1 { get; set; }
 
         public Edicion() 
         {
             tarjetaModels1 = new TarjetaRequerim();
             tareaModels1 = new Tarea();
             verboModels1 = new Verbotax();
-            verbotarjetaModels1 = new VerbosTarjeta();
+            verbotarjetaModels1 = new VerbosTarjeta();         
+            requerimientoModels1 = new Requerimiento();
+            partidaModels1 = new PartidaJugador();
         }
 
         

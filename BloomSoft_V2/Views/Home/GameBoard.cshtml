@@ -309,7 +309,7 @@
                                 <table class="table">
                                     <tr>
                                         <td>
-                                            <a href="@Url.Action("Muestra","Edicion")">Agregar/Ver Requerimientos</a>
+                                            <a href="@Url.Action("Index","Requerimiento")">Agregar/Ver Requerimientos</a>
 
                                         </td>
 
@@ -508,14 +508,14 @@
             </div>
 
             <div style="margin-top:-700px; float:left; margin-left:88%">
-                <a href="@Url.Action("Index", "Edicion")"><div class="edit"></div></a>
+                <a href="@Url.Action("Muestra", "Edicion")"><div class="edit"></div></a>
             </div>
 
             <div style="margin-top:-550px; float:left; margin-left:96%">
                 <button type="button" class="btn btn-primary" onclick="toggle_visibility('tarjeta');">Lanzar</button>
             </div>
 
-            <div id="tarjeta" class="tarjetalanzar" style="margin-top:-500px; float:left; margin-left:88%">
+            <div id="tarjeta" class="tarjetalanzar" style="margin-top:-500px; float:left; margin-left:88%; display: none">
                 <div class="row">
                     <div class="col-md-9 col-md-offset-3">
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
