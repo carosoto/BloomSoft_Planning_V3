@@ -51,6 +51,7 @@ namespace BloomSoft_V2.Controllers
         // POST: PartidaJuego/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        /*
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id_partidaJuego,id_proyecto,id_usuario,fecha,hora")] PartidaJuego partidaJuego)
@@ -66,7 +67,21 @@ namespace BloomSoft_V2.Controllers
             ViewBag.id_proyecto = new SelectList(db.Proyecto, "id_proyecto", "nombre", partidaJuego.id_proyecto);
             return View(partidaJuego);
         }
+        */
 
+        [HttpGet]
+        public ActionResult Nuevo([Bind(Include = "id_proyecto")] PartidaJuego partJuego)
+        {
+            if (partJuego.id_proyecto != 0)
+            {
+                partJuego.id_usuario = User.Identity.GetUserId();
+                partJuego.estado = true;
+                db.PartidaJuego.Add(partJuego);
+                db.SaveChanges();
+                return Redirect("/PartidaJugador/UnirsePartida/?id_partidaJuego=" + partJuego.id_partidaJuego);
+            }
+            return View();
+        }
         // GET: PartidaJuego/Edit/5
         public ActionResult Edit(int? id)
         {

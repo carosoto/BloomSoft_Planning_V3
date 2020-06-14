@@ -95,7 +95,6 @@ namespace BloomSoft_V2.Controllers
         }*/
 
 
-
         //[Authorize]
         public ActionResult GameBoard()
         {

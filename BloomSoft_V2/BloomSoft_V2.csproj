@@ -338,14 +338,6 @@
     <Content Include="Views\Participantes\Edit.cshtml" />
     <Content Include="Views\Participantes\Index.cshtml" />
     <Content Include="Views\Participantes\Unirse.cshtml" />
-    <Content Include="Views\Edicion\MuestraRequerimiento.cshtml" />
-    <Content Include="Views\Edicion\CreaRequerimiento.cshtml" />
-    <Content Include="Views\Edicion\_Layout.cshtml" />
-    <Content Include="Views\Requerimiento\Create.cshtml" />
-    <Content Include="Views\Requerimiento\Delete.cshtml" />
-    <Content Include="Views\Requerimiento\Details.cshtml" />
-    <Content Include="Views\Requerimiento\Edit.cshtml" />
-    <Content Include="Views\Requerimiento\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
