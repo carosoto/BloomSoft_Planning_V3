@@ -94,14 +94,16 @@ namespace BloomSoft_V2.Controllers
 
        
 
-            public ActionResult Edit(int? id)
+            public ActionResult Edit(int? id, int nivel)
             {
+            
               if (id == null)
               {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
               }
             Edicion edicion = new Edicion();
             edicion.tarjetaModels1 = db.TarjetaRequerim.Find(id);
+            edicion.tarjetaModels1.nivel_tax = nivel;
                       
               if (edicion == null)
               {

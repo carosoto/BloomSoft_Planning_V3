@@ -4,6 +4,7 @@
 @using BloomSoft_V2.Models
 
 @{
+
     var id_partida = 0;
     foreach (var partida in Model.JugadorModel)
     {
@@ -265,7 +266,7 @@
         }
 
         .tarjetalanzar {
-            width: 15%;
+            width: 35%;
             border: #3b3879 3px solid;
             margin-left: auto;
             margin-right: auto;
@@ -293,7 +294,7 @@
                                 <table class="table">
                                     <tr>
                                         <td>
-                                            <a href="@Url.Action("Muestra","Edicion")">Agregar/Ver Requerimientos</a>
+                                            <a href="@Url.Action("Muestra", "Edicion")">Agregar/Ver Requerimientos</a>
 
                                         </td>
                                     </tr>
@@ -372,7 +373,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" onclick="location.href='@Url.Action("Index","Home")'">
+                                <a data-toggle="collapse" data-parent="#accordion" onclick="location.href='@Url.Action("Index", "Home")'">
                                     <span class="glyphicon glyphicon-th">
                                     </span>Salir del Juego
                                 </a>
@@ -410,6 +411,8 @@
                     else
                         e.style.display = 'block';
                 }
+
+
             </script>
             @*<div class="row">
             <div class="column">
@@ -430,28 +433,75 @@
                 </div>
             </div>
         </div>*@
+
+            @{
+                var activo = false;
+                var activo2 = false;
+                var activo3 = false;
+                var activo4 = false;
+                var activo5 = false;
+                var activo6 = false;
+
+                var valor=0;
+
+            }
+
+
             <div style="margin-top:5%">
+
                 <div style="float:right; margin-right:15%">
-                    <a><div class="conoc"></div></a>
+                    <a onclick="@(activo = true)"><div class="conoc"></div></a>
                 </div>
                 <div style="float:right; margin-right:5%">
-                    <a><div class="compr"></div></a>
+                    <a onclick="@(activo2 = true)"><div class="compr"></div></a>
                 </div>
                 <div style="float:right; margin-right:5%">
-                    <a><div class="analisis"></div></a>
+                    <a onclick="@(activo3 = true)"><div class="analisis"></div></a>
                 </div>
             </div>
             <div style="margin-top:30%; margin-right:3%">
                 <div style="float:right; margin-right:5%">
-                    <a><div class="eval"></div></a>
+                    <a onclick="@(activo4 = true)"><div class="eval"></div></a>
                 </div>
                 <div style="float:right; margin-right:5%">
-                    <a><div class="aplic"></div></a>
+                    <a onclick="@(activo5 = true)"><div class="aplic"></div></a>
                 </div>
                 <div style="float:right; margin-right:5%">
-                    <a><div class="sint"></div></a>
+                    <a onclick="@(activo = true)"><div class="sint"></div></a>
                 </div>
             </div>
+
+            @{
+                if (activo)
+                { valor = 1; }
+                else
+                {
+                    if (activo2)
+                    { valor = 2; }
+                    else
+                    {
+                        if (activo3)
+                        { valor = 3; }
+                        else
+                        {
+                            if (activo4)
+                            { valor = 4; }
+                            else
+                            {
+                                if (activo5)
+                                { valor = 5; }
+                                else
+                                {
+                                    if (activo6)
+                                    { valor = 6; }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            }
+
             <div class="form-group">
                 <div class="row">
                     @foreach (var partida in Model.JugadorModel)
@@ -480,92 +530,143 @@
             <div style="margin-top:-700px; float:left; margin-left:88%">
                 <a href="@Url.Action("Muestra", "Edicion")"><div class="edit"></div></a>
             </div>
+
+
             <div style="margin-top:-550px; float:left; margin-left:96%">
                 <button type="button" class="btn btn-primary" onclick="toggle_visibility('tarjeta');">Lanzar</button>
             </div>
 
-            <div id="tarjeta" class="tarjetalanzar" style="margin-top:-500px; float:left; margin-left:88%">
+            <div id="tarjeta" class="tarjetalanzar" style="margin-top:-500px; float:left; margin-left:88%; display:none">
                 <div class="row">
-                    <div class="col-md-9 col-md-offset-3">
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.edicionM.tarjetaModels1.nivel_tax, "nivel_tax", htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.edicionM.tarjetaModels1.nivel_tax, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.edicionM.tarjetaModels1.nivel_tax, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
+                    <div class="col-xs-6">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.edicionM.tarjetaModels1.tiempo, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.edicionM.tarjetaModels1.tiempo, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.edicionM.tarjetaModels1.tiempo, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.edicionM.tarjetaModels1.dificultad, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.edicionM.tarjetaModels1.dificultad, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.edicionM.tarjetaModels1.dificultad, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
+                                @foreach (var item in Model.requerimientoModels)
+                                {
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                @Html.RadioButton("check", true)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.descripcion)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                }
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.edicionM.tareaModels1.descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.edicionM.tareaModels1.descripcion, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.edicionM.tareaModels1.descripcion, "", new { @class = "text-danger" })
-                            </div>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-xs-3" style="margin-left:-12%">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+
+
+                                @foreach (var item in Model.tarjetaModels)
+                                {
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                @Html.ActionLink(">", "Edit", "Edicion", new { id = item.id_tarjetaRequerim, nivel=valor }, null)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                }
+
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-5" style="margin-left:-18%">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+
+                                @foreach (var item in Model.tareaModels)
+                                {
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                @Html.ActionLink(item.descripcion, "Edit2", "Edicion", new { id = item.id_tarea }, null)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                }
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-3" style="margin-left:-12%">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+
+                                @foreach (var item in Model.verbotarjetaModels)
+                                {
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                @Html.ActionLink(item.Verbotax.verbos, "Edit3", "Edicion", new { id = item.id_verbostarjeta }, null)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                }
+
+
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
+
+
+
         </div>
-    </div>
-        <!--
-        <script language="javaScript">
-            function cambiarTurno()
-            {
-                var cantidad = 0;
-                var contador = 0;
-                var contador2 = 0;
-                foreach (var partida in Model)
-                {
-                    cantidad =
-                }
+   </div>
 
-                foreach (var partida in Model)
+            <!--
+            <script language="javaScript">
+                function cambiarTurno()
                 {
-                    if (id_partida == partida.id_partidaJuego)
+                    var cantidad = 0;
+                    var contador = 0;
+                    var contador2 = 0;
+                    foreach (var partida in Model)
                     {
-                        var nombre = partida.AspNetUsers.UserName.Substring(0, 10);
+                        cantidad =
                     }
-                    cantidad++;
-                    foreach(var partida in part)
-                    {
-                        contador++;
-                        if (partida.turno == true)
-                            db.PartidaJugador.Find(partida.id_partidaJugador).turno = false;
-                        if (contador == cantidad)
-                            contador = 1;
-                    }
-                    foreach(var partida in part)
-                    {
-                        contador2++;
-                        if (contador + 1 == contador2)
-                            db.PartidaJugador.Find(partida.id_partidaJugador).turno = true;
-                    }
-                    db.SaveChanges();
 
-                    var partJuego = db.PartidaJugador;
-                    if (partJuego == null) {
-                        return RedirectToAction("Index", "HomeController");
+                    foreach (var partida in Model)
+                    {
+                        if (id_partida == partida.id_partidaJuego)
+                        {
+                            var nombre = partida.AspNetUsers.UserName.Substring(0, 10);
+                        }
+                        cantidad++;
+                        foreach(var partida in part)
+                        {
+                            contador++;
+                            if (partida.turno == true)
+                                db.PartidaJugador.Find(partida.id_partidaJugador).turno = false;
+                            if (contador == cantidad)
+                                contador = 1;
+                        }
+                        foreach(var partida in part)
+                        {
+                            contador2++;
+                            if (contador + 1 == contador2)
+                                db.PartidaJugador.Find(partida.id_partidaJugador).turno = true;
+                        }
+                        db.SaveChanges();
+
+                        var partJuego = db.PartidaJugador;
+                        if (partJuego == null) {
+                            return RedirectToAction("Index", "HomeController");
+                        }
                     }
-                }
-        </script>
-            -->
-     </body>
+            </script>
+                -->
+</body>
 </html>
 

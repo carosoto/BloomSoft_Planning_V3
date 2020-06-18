@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -102,13 +103,27 @@ namespace BloomSoft_V2.Controllers
             var partJuego = new Tablero
             {
                 JugadorModel = db.PartidaJugador,
-            
+                tarjetaModels = db.TarjetaRequerim,
+                tareaModels = db.Tarea,
+                verboModels = db.Verbotax,
+                verbotarjetaModels = db.VerbosTarjeta,
+                requerimientoModels = db.Requerimiento
+                
             };
+            
             if (partJuego == null)
             {
                 return RedirectToAction("Index", "HomeController");
             }
             return View(partJuego);
+        }
+
+        public ActionResult Nivel(bool divClicked)
+        {
+            Debug.WriteLine("conocimiento");
+            return View();
+
+
         }
         /*//Funcion para cambiar el turno
         public ActionResult GameBoard(int id_part)
