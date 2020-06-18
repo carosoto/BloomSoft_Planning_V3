@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Edición de Requerimientos</h2>
 
 @using (Html.BeginForm())
 {
@@ -12,7 +12,7 @@
 
 
 <div class="form-horizontal">
-    <h4>Edición de Requerimientos</h4>
+    
     <hr />
     <div class="row">
         <div class="col-md-9 col-md-offset-3">
@@ -51,9 +51,9 @@
         }
 
 
-        <div>
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+<div>
+    @Html.ActionLink("Volver al juego", "GameBoard", "Home")
+</div>
 
         @section Scripts {
             @Scripts.Render("~/bundles/jqueryval")
