@@ -13,8 +13,10 @@ namespace BloomSoft_V2.Controllers
 {
     public class PartidaJugadorController : Controller
     {
+       //Controlador para el modelo partida jugador
         private BSModel db = new BSModel();
 
+        //visualizar los atributos de la tabla PartidaJugador
         // GET: PartidaJugador
         public ActionResult Index()
         {
@@ -22,6 +24,7 @@ namespace BloomSoft_V2.Controllers
             return View(partidaJugador.ToList());
         }
 
+        //visualizar detalles de los atributos de la tabla PartidaJugador
         // GET: PartidaJugador/Details/5
         public ActionResult Details(int? id)
         {
@@ -37,6 +40,7 @@ namespace BloomSoft_V2.Controllers
             return View(partidaJugador);
         }
 
+        //crea los atributos de la tabla PartidaJugador
         // GET: PartidaJugador/Create
         public ActionResult Create()
         {
@@ -72,6 +76,7 @@ namespace BloomSoft_V2.Controllers
             return View(partidaJugador);
         }
 
+        //accion para unirse a la partida con el codigo del jugador
         [HttpGet]
         public ActionResult UnirsePartida([Bind(Include = "id_partidaJuego")] PartidaJugador partida)
         {
@@ -109,6 +114,7 @@ namespace BloomSoft_V2.Controllers
             return RedirectToAction("Menu", "Home");
         }
 
+        //editar los atributos de la tabla PartidaJugador
         // GET: PartidaJugador/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -144,6 +150,7 @@ namespace BloomSoft_V2.Controllers
             return View(partidaJugador);
         }
 
+        //eliminar los atributos de la tabla PartidaJugador
         // GET: PartidaJugador/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -159,6 +166,7 @@ namespace BloomSoft_V2.Controllers
             return View(partidaJugador);
         }
 
+        //confirmar la eliminacion de los atributos de la tabla PartidaJugador
         // POST: PartidaJugador/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

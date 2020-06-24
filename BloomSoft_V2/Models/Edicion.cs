@@ -7,6 +7,8 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.Spatial;
 
+//Modelo multiple que une los modelos Tarjetarequerim, Tarea, Verbotax
+//VerbosTarjeta, Requerimiento y partidaJugador para la cracion de las tarjetas del juego
 
 namespace BloomSoft_V2.Models
 {

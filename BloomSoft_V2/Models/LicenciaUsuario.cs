@@ -6,6 +6,8 @@ namespace BloomSoft_V2.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    //registra los datos de los usuarios con una licencia premium (sin habilitar)
+
     [Table("LicenciaUsuario")]
     public partial class LicenciaUsuario
     {

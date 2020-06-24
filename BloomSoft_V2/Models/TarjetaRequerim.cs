@@ -6,6 +6,9 @@ namespace BloomSoft_V2.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    //registra la informacion del tiempo, dificultad y puntos y une los modelos de requerimientos tareas, verbos y 
+    //nivel de la taxonomaia para crear la tarjeta de juego
+
     [Table("TarjetaRequerim")]
     public partial class TarjetaRequerim
     {

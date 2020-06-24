@@ -6,6 +6,8 @@ namespace BloomSoft_V2.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    //registra el verbo y el nivel de la taxonomia que le corresponde
+
     [Table("Verbotax")]
     public partial class Verbotax
     {

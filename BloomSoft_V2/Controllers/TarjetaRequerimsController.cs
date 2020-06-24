@@ -11,10 +11,12 @@ using Microsoft.AspNet.Identity;
 
 namespace BloomSoft_V2.Controllers
 {
+    //Controlador para Modelo de TarjetaRequrim
     public class TarjetaRequerimsController : Controller
     {
         private BSModel db = new BSModel();
 
+        //visualizar los atributos de la tabla TarjetaRequerim
         // GET: TarjetaRequerims
         public ActionResult Index()
         {
@@ -23,6 +25,7 @@ namespace BloomSoft_V2.Controllers
             return View(tarjetaRequerim.ToList());
         }
 
+        //visualizar detalles de los atributos de la tabla TarjetaRequerim
         // GET: TarjetaRequerims/Details/5
         public ActionResult Details(int? id)
         {
@@ -38,6 +41,7 @@ namespace BloomSoft_V2.Controllers
             return View(tarjetaRequerim);
         }
 
+        //insrtar los atributos de la tabla TarjetaRequerim
         // GET: TarjetaRequerims/Create
         public ActionResult Create()
         {
@@ -72,6 +76,7 @@ namespace BloomSoft_V2.Controllers
             return View(tarjetaRequerim);
         }
 
+        //Editar los atributos de la tabla tarjetaRequerim
         // GET: TarjetaRequerims/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -109,6 +114,7 @@ namespace BloomSoft_V2.Controllers
             return View(tarjetaRequerim);
         }
 
+        //borrar los atributos de la tabla TarjetaRequerim
         // GET: TarjetaRequerims/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -124,6 +130,7 @@ namespace BloomSoft_V2.Controllers
             return View(tarjetaRequerim);
         }
 
+        //confirmar la eliminacion de los atributos de la table TerjetaRequerim
         // POST: TarjetaRequerims/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -135,6 +142,7 @@ namespace BloomSoft_V2.Controllers
             return RedirectToAction("Index");
         }
 
+        //acceso a la base de datos
         protected override void Dispose(bool disposing)
         {
             if (disposing)

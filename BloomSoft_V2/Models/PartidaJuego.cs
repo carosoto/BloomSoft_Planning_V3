@@ -6,6 +6,8 @@ namespace BloomSoft_V2.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    //iniializa y registra los datos de la partida iniciada
+
     [Table("PartidaJuego")]
     public partial class PartidaJuego
     {

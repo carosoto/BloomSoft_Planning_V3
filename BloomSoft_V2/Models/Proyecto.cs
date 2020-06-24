@@ -6,6 +6,9 @@ namespace BloomSoft_V2.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    //registra un proyecto y las interacciones que han tenido los jugadores con el proyecto ademas de registrar 
+    //si el proyecto sigue activo o ya fue finalizado con el atributo estado
+
     [Table("Proyecto")]
     public partial class Proyecto
     {

@@ -6,6 +6,9 @@ namespace BloomSoft_V2.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    //inicializa los valores para la tabla EstadisticasPartida que guarda
+    //los puntajes de los jugadores
+
     [Table("EstadisticasPartida")]
     public partial class EstadisticasPartida
     {

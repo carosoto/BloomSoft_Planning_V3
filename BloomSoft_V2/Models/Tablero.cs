@@ -7,6 +7,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.Spatial;
 using System.Web.UI.HtmlControls;
 
+//Modelo multiple que une los modelos PartidaJugador Tarjetarequerim, Tarea, Verbotax
+//VerbosTarjeta, Requerimiento para la modificacion y visualizacion de las tarjetas
+//del juego en el tablero
+
 namespace BloomSoft_V2.Models
 {
     public class Tablero

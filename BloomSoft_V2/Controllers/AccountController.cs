@@ -10,6 +10,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using BloomSoft_V2.Models;
 
+//Controlador para recuperación de cuenta
+
 namespace BloomSoft_V2.Controllers
 {
     [Authorize]

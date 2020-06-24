@@ -11,10 +11,12 @@ using Microsoft.AspNet.Identity;
 
 namespace BloomSoft_V2.Controllers
 {
+    //controlador del modelo de requerimiento
     public class RequerimientoController : Controller
     {
         private BSModel db = new BSModel();
 
+        //visualizar los atributos de la tabla requerimiento
         // GET: Requerimiento
         public ActionResult Index()
         {
@@ -22,6 +24,7 @@ namespace BloomSoft_V2.Controllers
             return View(requerimiento.ToList());
         }
 
+        //visualizar los detalles de los atributos de la tabla rquerimiento
         // GET: Requerimiento/Details/5
         public ActionResult Details(int? id)
         {
@@ -37,6 +40,7 @@ namespace BloomSoft_V2.Controllers
             return View(requerimiento);
         }
 
+        //crear los atributos de la tabla requerimiento
         // GET: Requerimiento/Create
         public ActionResult Create()
         {
@@ -67,6 +71,7 @@ namespace BloomSoft_V2.Controllers
             return View(requerimiento);
         }
 
+        //editar los atributos de la tabla requerimiento
         // GET: Requerimiento/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -100,6 +105,7 @@ namespace BloomSoft_V2.Controllers
             return View(requerimiento);
         }
 
+        //eliminar los atributos de la tabla requerimiento
         // GET: Requerimiento/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -115,6 +121,7 @@ namespace BloomSoft_V2.Controllers
             return View(requerimiento);
         }
 
+        //confirmar la eliminacion de los atributos de la tabla requerimiento
         // POST: Requerimiento/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -126,6 +133,7 @@ namespace BloomSoft_V2.Controllers
             return RedirectToAction("Index");
         }
 
+        //acceso a la base de datos
         protected override void Dispose(bool disposing)
         {
             if (disposing)

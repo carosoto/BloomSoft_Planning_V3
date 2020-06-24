@@ -8,12 +8,15 @@ using System.Web;
 using System.Web.Mvc;
 using BloomSoft_V2.Models;
 
+//Controlador para modelo Verbotax
+
 namespace BloomSoft_V2.Controllers
 {
     public class VerbotaxController : Controller
     {
         private BSModel db = new BSModel();
 
+        //visualizar los atributos de la tabla Verbotax
         // GET: Verbotax
         public ActionResult Index()
         {
@@ -21,6 +24,7 @@ namespace BloomSoft_V2.Controllers
             return View(verbotax.ToList());
         }
 
+        //visualizar los detalles para los atributos de la tabla Verbotax
         // GET: Verbotax/Details/5
         public ActionResult Details(int? id)
         {
@@ -36,6 +40,7 @@ namespace BloomSoft_V2.Controllers
             return View(verbotax);
         }
 
+        //insertar valores a los atributos de la tabla Verbotax
         // GET: Verbotax/Create
         public ActionResult Create()
         {
@@ -61,6 +66,7 @@ namespace BloomSoft_V2.Controllers
             return View(verbotax);
         }
 
+        //editar los valores de los atributos de la tabla Verbotax
         // GET: Verbotax/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -94,6 +100,7 @@ namespace BloomSoft_V2.Controllers
             return View(verbotax);
         }
 
+        //eliminar los atributos de la tabla Verbotax
         // GET: Verbotax/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -109,6 +116,7 @@ namespace BloomSoft_V2.Controllers
             return View(verbotax);
         }
 
+        //Confirmar la eliminacion los atributos de la tabla Verbotax
         // POST: Verbotax/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -120,6 +128,7 @@ namespace BloomSoft_V2.Controllers
             return RedirectToAction("Index");
         }
 
+        //acceso a la base de datos
         protected override void Dispose(bool disposing)
         {
             if (disposing)

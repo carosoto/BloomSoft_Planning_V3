@@ -10,16 +10,20 @@ using System.Web.Mvc;
 using BloomSoft_V2.Models;
 using Microsoft.AspNet.Identity;
 
+//Controador de la vista principal, el menu y el tablero
+
 namespace BloomSoft_V2.Controllers
 {
     public class HomeController : Controller
     {
         private BSModel db = new BSModel();
+        //vista principal
         public ActionResult Index()
         {
             return View();
         }
 
+        //accion para la pagina de información
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -27,16 +31,19 @@ namespace BloomSoft_V2.Controllers
             return View();
         }
 
+        //accion para pagina para adquirir una licencia premium
         public ActionResult Premium()
         {
             return View();
         }
 
+        //accion para la pagina de contacto 
         public ActionResult Contact()
         {
             return View();
         }
 
+        //accion para menu principal
         public ActionResult Menu()
         {
             /*ViewBag.id_usuario = new SelectList(db.AspNetUsers, "Id", "Email");
@@ -95,11 +102,11 @@ namespace BloomSoft_V2.Controllers
             return View(proyecto);
         }*/
 
-
+         //accion que llama al tablero de juego
         //[Authorize]
         public ActionResult GameBoard()
         {
-
+            //inicialización de modelos usados en el tablero
             var partJuego = new Tablero
             {
                 JugadorModel = db.PartidaJugador,

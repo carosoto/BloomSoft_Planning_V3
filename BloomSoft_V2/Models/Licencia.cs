@@ -6,6 +6,8 @@ namespace BloomSoft_V2.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    //modelo que guarda los datos de los proyectos registrados con una licencia premium (sin habilitar)
+
     [Table("Licencia")]
     public partial class Licencia
     {

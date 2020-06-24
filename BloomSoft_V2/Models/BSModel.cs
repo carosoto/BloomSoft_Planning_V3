@@ -5,6 +5,8 @@ namespace BloomSoft_V2.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
+    //Modelo general de la base de datos, inicializa todos los valores de las tablas de la base de datos
+
     public partial class BSModel : DbContext
     {
         public BSModel()

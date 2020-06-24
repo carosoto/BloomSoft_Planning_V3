@@ -11,10 +11,12 @@ using Microsoft.AspNet.Identity;
 
 namespace BloomSoft_V2.Controllers
 {
+    //controlador para modelo partida juego
     public class PartidaJuegoController : Controller
     {
         private BSModel db = new BSModel();
-    
+
+        //visualizar los atributos de la tabla PartidaJuego
         // GET: PartidaJuego
         public ActionResult Index()
         {
@@ -22,6 +24,7 @@ namespace BloomSoft_V2.Controllers
             return View(partidaJuego.ToList());
         }
 
+        //muestra detalles de los atributos de la tabla PartidaJuego
         // GET: PartidaJuego/Details/5
         public ActionResult Details(int? id)
         {
@@ -37,6 +40,7 @@ namespace BloomSoft_V2.Controllers
             return View(partidaJuego);
         }
 
+        //crea los atributos de la tabla PartidaJuego
         // GET: PartidaJuego/Create
         public ActionResult Create()
         {
@@ -69,6 +73,7 @@ namespace BloomSoft_V2.Controllers
         }
         */
 
+            //crea un nuevo codigo de juego
         [HttpGet]
         public ActionResult Nuevo([Bind(Include = "id_proyecto")] PartidaJuego partJuego)
         {
@@ -82,6 +87,8 @@ namespace BloomSoft_V2.Controllers
             }
             return View();
         }
+
+        //modifica los atributos de la tabla partidaJuego
         // GET: PartidaJuego/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -117,6 +124,7 @@ namespace BloomSoft_V2.Controllers
             return View(partidaJuego);
         }
 
+        //elimina los atributos de la tabla PartidaJuego
         // GET: PartidaJuego/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -132,6 +140,7 @@ namespace BloomSoft_V2.Controllers
             return View(partidaJuego);
         }
 
+        //confirma la eliminacion de los atributos de la tabla PartidaJuego
         // POST: PartidaJuego/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -143,6 +152,7 @@ namespace BloomSoft_V2.Controllers
             return RedirectToAction("Index");
         }
 
+        //acceso a la base de datos
         protected override void Dispose(bool disposing)
         {
             if (disposing)

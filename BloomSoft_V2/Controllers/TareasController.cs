@@ -8,12 +8,15 @@ using System.Web;
 using System.Web.Mvc;
 using BloomSoft_V2.Models;
 
+//Controlador para modelo de tareas
+
 namespace BloomSoft_V2.Controllers
 {
     public class TareasController : Controller
     {
         private BSModel db = new BSModel();
 
+        //visualizar los atributos de la tabla Tareas
         // GET: Tareas
         public ActionResult Index()
         {
@@ -21,6 +24,7 @@ namespace BloomSoft_V2.Controllers
             return View(tarea.ToList());
         }
 
+        //visualizar detalles de los atributos de la tabla Tareas
         // GET: Tareas/Details/5
         public ActionResult Details(int? id)
         {
@@ -36,6 +40,7 @@ namespace BloomSoft_V2.Controllers
             return View(tarea);
         }
 
+        //Ingresar los atributos de la tabla Tareas
         // GET: Tareas/Create
         public ActionResult Create()
         {
@@ -61,6 +66,7 @@ namespace BloomSoft_V2.Controllers
             return View(tarea);
         }
 
+        //editar los atributos de la tabla Tareas
         // GET: Tareas/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -94,6 +100,7 @@ namespace BloomSoft_V2.Controllers
             return View(tarea);
         }
 
+        //eliminar los atributos de la tabla Tareas
         // GET: Tareas/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -109,6 +116,7 @@ namespace BloomSoft_V2.Controllers
             return View(tarea);
         }
 
+        //Confirma la eliminacion de los atributos de la tabla Tareas
         // POST: Tareas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -120,6 +128,7 @@ namespace BloomSoft_V2.Controllers
             return RedirectToAction("Index");
         }
 
+        //Acceso a la base de datos
         protected override void Dispose(bool disposing)
         {
             if (disposing)

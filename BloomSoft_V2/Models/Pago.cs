@@ -6,6 +6,8 @@ namespace BloomSoft_V2.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    //registra los datos de pago del usuario y su folio de licencia (sin habilitar)
+
     [Table("Pago")]
     public partial class Pago
     {

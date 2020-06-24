@@ -11,6 +11,8 @@ using System.Web.Routing;
 using BloomSoft_V2.Models;
 using Microsoft.AspNet.Identity;
 
+//Controlador para creación y modificación de tarjetas de requerimientos
+
 namespace BloomSoft_V2.Controllers
 {
     public class EdicionController : Controller
@@ -18,7 +20,7 @@ namespace BloomSoft_V2.Controllers
         BSModel db = new BSModel();
         
 
-
+        //muestra las tarjetas de cada jugador para que se modifiquen
         public ActionResult Index()
         {
 
@@ -36,6 +38,7 @@ namespace BloomSoft_V2.Controllers
 
         }
 
+        //muestra el contenido de las tarjetas creadas
         public ActionResult Muestra()
         {
             var edicion = new Edicion
@@ -51,7 +54,7 @@ namespace BloomSoft_V2.Controllers
             return View(edicion);
         }
         
-
+        //Agrega a la tarjeta de requerimientos verbos tareas duracion y dificultad del requerimiento
         // GET: Edicion/Create
         public ActionResult Create(int id_t, int id_r)
         {
@@ -73,6 +76,7 @@ namespace BloomSoft_V2.Controllers
 
         }
 
+        //POST
         [HttpPost]
         public ActionResult Create(Edicion model)
         {
@@ -93,7 +97,7 @@ namespace BloomSoft_V2.Controllers
         }
 
        
-
+        //modifica la informacion de tiempo y dificultad en las tarjetas en el tablero
             public ActionResult Edit(int? id, int nivel)
             {
             
@@ -112,6 +116,7 @@ namespace BloomSoft_V2.Controllers
                return View(edicion);
             }  
 
+        //POST
         [HttpPost]
         public ActionResult Edit(Edicion edicion)
         {
@@ -124,7 +129,8 @@ namespace BloomSoft_V2.Controllers
             return View(edicion);
         }
 
-       public ActionResult Edit2(int? id)
+        //modifica la informacion de tareas en las tarjetas en el tablero
+        public ActionResult Edit2(int? id)
         {
             if (id==null)
             {
@@ -140,6 +146,7 @@ namespace BloomSoft_V2.Controllers
             return View(edicion);
         }
 
+        //POST
         [HttpPost]
         public ActionResult Edit2(Edicion edicion)
         {
@@ -152,6 +159,7 @@ namespace BloomSoft_V2.Controllers
             return View(edicion);
         }
 
+        //modifica la informacion de los verbos en las tarjetas en el tablero
         public ActionResult Edit3(int? id)
         {
             if (id == null)
@@ -169,6 +177,7 @@ namespace BloomSoft_V2.Controllers
             return View(edicion);
         }
 
+        //POST
         [HttpPost]
         public ActionResult Edit3(Edicion edicion)
         {

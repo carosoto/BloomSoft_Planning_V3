@@ -8,6 +8,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using BloomSoft_V2.Models;
 
+//controlador de verificacion de cuentas
+
 namespace BloomSoft_V2.Controllers
 {
     [Authorize]

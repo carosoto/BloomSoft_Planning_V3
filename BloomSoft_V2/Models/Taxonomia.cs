@@ -6,6 +6,8 @@ namespace BloomSoft_V2.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    //registra los niveles de la taxonomia usados en el registro de la tarjeta de juego
+
     [Table("Taxonomia")]
     public partial class Taxonomia
     {

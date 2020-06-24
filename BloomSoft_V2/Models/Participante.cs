@@ -6,6 +6,8 @@ namespace BloomSoft_V2.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    //inicializa los valores de los prarticipantes de cada proyecto
+
     [Table("Participante")]
     public partial class Participante
     {

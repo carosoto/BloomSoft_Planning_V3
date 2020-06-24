@@ -7,6 +7,8 @@ namespace BloomSoft_V2.Models
     using System.Data.Entity.Spatial;
     using BloomSoft_V2.Models;
 
+    //inicializa y registra los datos de cada usuario como parte de una partida
+
     [Table("PartidaJugador")]
     public partial class PartidaJugador
     {

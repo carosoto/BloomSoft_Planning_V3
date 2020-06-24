@@ -11,10 +11,12 @@ using Microsoft.AspNet.Identity;
 
 namespace BloomSoft_V2.Controllers
 {
+    //controlador del modelo de proyecto
     public class ProyectoController : Controller
     {
         private BSModel db = new BSModel();
 
+        //visualizar los atributos de la tabla proyecto
         // GET: Proyecto
         public ActionResult Index()
         {
@@ -22,6 +24,7 @@ namespace BloomSoft_V2.Controllers
             return View(proyecto.ToList());
         }
 
+        //visualizar detalles de los atributos de la tabla proyecto
         // GET: Proyecto/Details/5
         public ActionResult Details(int? id)
         {
@@ -37,6 +40,7 @@ namespace BloomSoft_V2.Controllers
             return View(proyecto);
         }
 
+        //crea los atributos de la tabla proyecto
         // GET: Proyecto/Create
         public ActionResult Create()
         {
@@ -74,6 +78,7 @@ namespace BloomSoft_V2.Controllers
             return View(proyecto);
         }
 
+        //editar los atributos de la tabla proyecto
         // GET: Proyecto/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -107,6 +112,7 @@ namespace BloomSoft_V2.Controllers
             return View(proyecto);
         }
 
+        //eliminar los atributos de la tabla proyecto
         // GET: Proyecto/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -122,6 +128,7 @@ namespace BloomSoft_V2.Controllers
             return View(proyecto);
         }
 
+        //confirmar la eliminacion de los atributos de la tabla participantes
         // POST: Proyecto/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -133,6 +140,7 @@ namespace BloomSoft_V2.Controllers
             return RedirectToAction("Index");
         }
 
+        //acceso a la base de datos
         protected override void Dispose(bool disposing)
         {
             if (disposing)

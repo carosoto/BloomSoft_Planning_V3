@@ -6,6 +6,8 @@ namespace BloomSoft_V2.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    //registra las historias de usuario iniciales para cada requerimiento
+
     [Table("Requerimiento")]
     public partial class Requerimiento
     {

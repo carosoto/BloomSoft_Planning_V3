@@ -6,6 +6,8 @@ namespace BloomSoft_V2.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    //registra los verbos para los requerimientos 
+
     [Table("VerbosTarjeta")]
     public partial class VerbosTarjeta
     {

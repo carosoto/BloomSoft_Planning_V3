@@ -9,12 +9,14 @@ using System.Web.Mvc;
 using BloomSoft_V2.Models;
 using Microsoft.AspNet.Identity;
 
+//controlador para modelo participantes
+
 namespace BloomSoft_V2.Controllers
 {
     public class ParticipantesController : Controller
     {
         private BSModel db = new BSModel();
-
+        //visualizar los atributos de la tabla participantes
         // GET: Participantes
         public ActionResult Index()
         {
@@ -22,6 +24,7 @@ namespace BloomSoft_V2.Controllers
             return View(participante.ToList());
         }
 
+        //visualizar detalles de los atributos de la tabla participantes
         // GET: Participantes/Details/5
         public ActionResult Details(int? id)
         {
@@ -37,6 +40,7 @@ namespace BloomSoft_V2.Controllers
             return View(participante);
         }
 
+        //ingresar los atributos de la tabla participantes
         // GET: Participantes/Create
         public ActionResult Create()
         {
@@ -64,6 +68,7 @@ namespace BloomSoft_V2.Controllers
             return View(participante);
         }
 
+        //editar los atributos de la tabla participantes
         // GET: Participantes/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -99,6 +104,7 @@ namespace BloomSoft_V2.Controllers
             return View(participante);
         }
 
+        //borrar los atributos de la tabla participantes
         // GET: Participantes/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -114,6 +120,7 @@ namespace BloomSoft_V2.Controllers
             return View(participante);
         }
 
+        //confirmar la eliminacion de los atributos de la tabla participantes
         // POST: Participantes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -125,6 +132,7 @@ namespace BloomSoft_V2.Controllers
             return RedirectToAction("Index");
         }
 
+        //acceso a la base de datos
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -134,6 +142,7 @@ namespace BloomSoft_V2.Controllers
             base.Dispose(disposing);
         }
         
+        //accion para unirse a una partida ya creada
         [HttpGet]
         public ActionResult Unirse([Bind(Include = "id_proyecto")] Participante participante)
         {
