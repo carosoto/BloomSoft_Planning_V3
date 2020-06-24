@@ -4,6 +4,8 @@
     ViewBag.Title = "Index";
 }
 
+<!--vista para mostrar la información de las tarjetas mediante tablas-->
+
 <style>
     .inlineTable {
         display: inline-block;
@@ -49,7 +51,7 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.puntos)
                         </td>
-                       
+
                     </tr>
                 </tbody>
             }
@@ -73,7 +75,7 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.descripcion)
                         </td>
-                       
+
                     </tr>
                 </tbody>
             }
@@ -96,11 +98,11 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Verbotax.verbos)
                         </td>
-                        
+
                     </tr>
                 </tbody>
             }
-           
+
         </table>
     </div>
 </div>

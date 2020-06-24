@@ -4,6 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<!--menu principal en el cual se pueden ver las estadisticas del juego, crear o continuar una partida y unirse a un juego ya creado-->
+
 <!DOCTYPE html>
 
 <html>
@@ -235,28 +237,28 @@
                 </div>
             </div>
 
-    <script type="text/javascript">
-        function getURL() {
-            var dir = "/Proyecto/Changes/?idProyecto=";
-            dir += document.getElementById('idProyecto').value;
-            window.location.href = dir;
-        }
-        function getURLcreaJuego() {
-            var dir = "/PartidaJuego/Nuevo/?id_proyecto=";
-            dir += document.getElementById('idProyecto').value;
-            window.location.href = dir;
-        }
-        function getURLunirse() {
-            var dir = "/Participantes/Unirse/?id_proyecto=";
-            dir += document.getElementById('id_proyecto').value;
-            window.location.href = dir;
-        }
-        function getURLunirsePartida() {
-            var dir = "/PartidaJugador/UnirsePartida/?id_partidaJuego=";
-            dir += document.getElementById('id_partidaJuego').value;
-            window.location.href = dir;
-        }
-    </script>
+            <script type="text/javascript">
+                function getURL() {
+                    var dir = "/Proyecto/Changes/?idProyecto=";
+                    dir += document.getElementById('idProyecto').value;
+                    window.location.href = dir;
+                }
+                function getURLcreaJuego() {
+                    var dir = "/PartidaJuego/Nuevo/?id_proyecto=";
+                    dir += document.getElementById('idProyecto').value;
+                    window.location.href = dir;
+                }
+                function getURLunirse() {
+                    var dir = "/Participantes/Unirse/?id_proyecto=";
+                    dir += document.getElementById('id_proyecto').value;
+                    window.location.href = dir;
+                }
+                function getURLunirsePartida() {
+                    var dir = "/PartidaJugador/UnirsePartida/?id_partidaJuego=";
+                    dir += document.getElementById('id_partidaJuego').value;
+                    window.location.href = dir;
+                }
+            </script>
 </body>
 
 </html>

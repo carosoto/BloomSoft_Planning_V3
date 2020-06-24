@@ -17,6 +17,9 @@
     ViewBag.title = "PartidaJuego";
 }
 
+<!--pagina que muestra el tablero, las cartas, los jugadores activos y un menu en donde se 
+    pueden ingresar visualizar los requerimientos antes del juego-->
+
 <!DOCTYPE html>
 
 <html>
@@ -34,9 +37,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-    
+
     <title></title>
-    
+
     <style>
         .card {
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -271,7 +274,6 @@
             margin-left: auto;
             margin-right: auto;
         }
-       
     </style>
 </head>
 <body>
@@ -415,24 +417,24 @@
 
             </script>
             @*<div class="row">
-            <div class="column">
-                <div class="card">
-                    <img src="~/Imagenes/Analisis.png" class="card-img-top" alt="Analisis">
-                </div>
-            </div>
+                    <div class="column">
+                        <div class="card">
+                            <img src="~/Imagenes/Analisis.png" class="card-img-top" alt="Analisis">
+                        </div>
+                    </div>
 
-            <div class="column">
-                <div class="card">
-                    <img src="~/Imagenes/Comprension.png" class="card-img-top" alt="Comprension">
-                </div>
-            </div>
+                    <div class="column">
+                        <div class="card">
+                            <img src="~/Imagenes/Comprension.png" class="card-img-top" alt="Comprension">
+                        </div>
+                    </div>
 
-            <div class="column">
-                <div class="card">
-                    <img src="~/Imagenes/Conocimiento.png" class="card-img-top" alt="Conocimiento">
-                </div>
-            </div>
-        </div>*@
+                    <div class="column">
+                        <div class="card">
+                            <img src="~/Imagenes/Conocimiento.png" class="card-img-top" alt="Conocimiento">
+                        </div>
+                    </div>
+                </div>*@
 
             @{
                 var activo = false;
@@ -442,7 +444,7 @@
                 var activo5 = false;
                 var activo6 = false;
 
-                var valor=0;
+                var valor = 0;
 
             }
 
@@ -570,7 +572,7 @@
                                     <tbody>
                                         <tr>
                                             <td>
-                                                @Html.ActionLink(">", "Edit", "Edicion", new { id = item.id_tarjetaRequerim, nivel=valor }, null)
+                                                @Html.ActionLink(">", "Edit", "Edicion", new { id = item.id_tarjetaRequerim, nivel = valor }, null)
                                             </td>
                                         </tr>
                                     </tbody>
@@ -623,50 +625,50 @@
 
 
         </div>
-   </div>
+    </div>
 
-            <!--
-            <script language="javaScript">
-                function cambiarTurno()
+    <!--
+    <script language="javaScript">
+        function cambiarTurno()
+        {
+            var cantidad = 0;
+            var contador = 0;
+            var contador2 = 0;
+            foreach (var partida in Model)
+            {
+                cantidad =
+            }
+
+            foreach (var partida in Model)
+            {
+                if (id_partida == partida.id_partidaJuego)
                 {
-                    var cantidad = 0;
-                    var contador = 0;
-                    var contador2 = 0;
-                    foreach (var partida in Model)
-                    {
-                        cantidad =
-                    }
+                    var nombre = partida.AspNetUsers.UserName.Substring(0, 10);
+                }
+                cantidad++;
+                foreach(var partida in part)
+                {
+                    contador++;
+                    if (partida.turno == true)
+                        db.PartidaJugador.Find(partida.id_partidaJugador).turno = false;
+                    if (contador == cantidad)
+                        contador = 1;
+                }
+                foreach(var partida in part)
+                {
+                    contador2++;
+                    if (contador + 1 == contador2)
+                        db.PartidaJugador.Find(partida.id_partidaJugador).turno = true;
+                }
+                db.SaveChanges();
 
-                    foreach (var partida in Model)
-                    {
-                        if (id_partida == partida.id_partidaJuego)
-                        {
-                            var nombre = partida.AspNetUsers.UserName.Substring(0, 10);
-                        }
-                        cantidad++;
-                        foreach(var partida in part)
-                        {
-                            contador++;
-                            if (partida.turno == true)
-                                db.PartidaJugador.Find(partida.id_partidaJugador).turno = false;
-                            if (contador == cantidad)
-                                contador = 1;
-                        }
-                        foreach(var partida in part)
-                        {
-                            contador2++;
-                            if (contador + 1 == contador2)
-                                db.PartidaJugador.Find(partida.id_partidaJugador).turno = true;
-                        }
-                        db.SaveChanges();
-
-                        var partJuego = db.PartidaJugador;
-                        if (partJuego == null) {
-                            return RedirectToAction("Index", "HomeController");
-                        }
-                    }
-            </script>
-                -->
+                var partJuego = db.PartidaJugador;
+                if (partJuego == null) {
+                    return RedirectToAction("Index", "HomeController");
+                }
+            }
+    </script>
+        -->
 </body>
 </html>
 
