@@ -1,4 +1,5 @@
-﻿/*Drop table dbo.Licencia;
+﻿/*corrección a la tabla licencia*/
+/*Drop table dbo.Licencia;
 Drop table dbo.VerbosTarjeta;*/
 
 /*create table Licencia(
@@ -13,6 +14,7 @@ Drop table dbo.VerbosTarjeta;*/
 	REFERENCES LicenciaUsuario(id_licencia)
 )
 
+/*agregar tabla participante*/
 create table Participante(
 	id_participante INT UNIQUE IDENTITY(1,1) NOT NULL,
 	id_proyecto INT NOT NULL,
@@ -26,6 +28,7 @@ create table Participante(
 	REFERENCES AspNetUsers(id)
 )
 
+/*agregar la tabla EstadisticasPartida*/
 create table EstadisticasPartida(
 	id_estadistica INT UNIQUE IDENTITY(1,1) NOT NULL,
 	id_partidajuego INT NOT NULL,
@@ -43,7 +46,7 @@ create table EstadisticasPartida(
 	REFERENCES PartidaJugador(id_partidaJugador)
 )
 
-
+/*agregar tabla VerbosTarjeta*/
 create table VerbosTarjeta(
     id_verbostarjeta INT UNIQUE IDENTITY(1,1) NOT NULL,
 	id_tarjetaRequerim INT NOT NULL,
@@ -59,6 +62,7 @@ create table VerbosTarjeta(
 /*ALTER TABLE dbo.Licencia
 ADD nombre VARCHAR(30) NOT NULL*/
 
+/*agregar lista de verbos*/
 INSERT INTO Verbotax(nivel_tax,verbos) 
 VALUES ('1','Bosquejar');
 INSERT INTO Verbotax(nivel_tax,verbos) 

@@ -1,4 +1,5 @@
-﻿/*Delete from TarjetaRequerim*/
+﻿/*agregar tarjeta de prueba*/
+/*Delete from TarjetaRequerim*/
 
 /*INSERT INTO TarjetaRequerim(id_requerimiento,id_partidaJugador,nivel_tax,tiempo,dificultad,puntos)
 VALUES ('5','303000001','2','2','2','2');*/
