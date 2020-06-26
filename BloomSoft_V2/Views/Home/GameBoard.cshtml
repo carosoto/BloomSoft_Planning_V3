@@ -3,6 +3,7 @@
 @model BloomSoft_V2.Models.Tablero
 @using BloomSoft_V2.Models
 
+<!--se asigna una partida juego al juego actual-->
 @{
 
     var id_partida = 0;
@@ -41,6 +42,7 @@
     <title></title>
 
     <style>
+        /*diseño de cartas*/
         .card {
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
             transition: 0.3s;
@@ -85,8 +87,8 @@
             padding: 15px 22px;
             margin-right: 180px;
         }
-
-        div.conoc {
+        /*diseño de botones de tablero*/
+        div.conoc {/*conocimiento*/
             margin-right: 80px;
             width: 150px;
             height: 190px;
@@ -99,7 +101,7 @@
                 background-repeat: no-repeat;
             }
 
-        div.compr {
+        div.compr { /*comprensión*/
             width: 190px;
             height: 190px;
             background-image: url('../Imagenes/Comprension.png');
@@ -111,7 +113,7 @@
                 background-repeat: no-repeat;
             }
 
-        div.analisis {
+        div.analisis {/*analisis*/
             width: 150px;
             height: 190px;
             background-image: url('../Imagenes/Analisis.png');
@@ -123,7 +125,7 @@
                 background-repeat: no-repeat;
             }
 
-        div.eval {
+        div.eval { /*evaluación*/
             margin-right: 180px;
             width: 150px;
             height: 190px;
@@ -136,7 +138,7 @@
                 background-repeat: no-repeat;
             }
 
-        div.aplic {
+        div.aplic { /*aplicación*/
             width: 150px;
             height: 190px;
             background-image: url('../Imagenes/Aplicacion.png');
@@ -148,7 +150,7 @@
                 background-repeat: no-repeat;
             }
 
-        div.sint {
+        div.sint { /*sintesis*/
             width: 150px;
             height: 190px;
             background-image: url('../Imagenes/Sintesis.png');
@@ -160,7 +162,7 @@
                 background-repeat: no-repeat;
             }
 
-        div.edit {
+        div.edit { /*boton para la edicion e las tarjetas*/
             width: 200px;
             height: 150px;
             background-image: url('../Imagenes/boton_tarjeta1.png');
@@ -173,7 +175,7 @@
                 background-repeat: no-repeat;
             }
 
-        div.lanzar {
+        div.lanzar { 
             width: 100px;
             height: 150px;
             background-image: url('../Imagenes/carta.jpg');
@@ -186,6 +188,8 @@
                 background-repeat: no-repeat;
             }
 
+
+/*simulación de usuarios y turnos*/
         #myImg {
             border-radius: 5px;
             cursor: pointer;
@@ -268,6 +272,7 @@
             background-size: 60px 60px;
         }
 
+        /*contenedor para las tarjetas en el tablero*/
         .tarjetalanzar {
             width: 35%;
             border: #3b3879 3px solid;
@@ -277,6 +282,7 @@
     </style>
 </head>
 <body>
+    <!--menu del juego-->
     <div class="container">
         <h4>ID de Partida @id_partida</h4>
         <div class="row">
@@ -295,7 +301,7 @@
                             <div class="panel-body">
                                 <table class="table">
                                     <tr>
-                                        <td>
+                                        <td><!--agrega y muestra los requerimientos del juego-->
                                             <a href="@Url.Action("Muestra", "Edicion")">Agregar/Ver Requerimientos</a>
 
                                         </td>
@@ -317,12 +323,12 @@
                             <div class="panel-body">
                                 <table class="table">
                                     <tr>
-                                        <td>
+                                        <td><!--genera archivo de los resultados (deshabilitado)-->
                                             <a href="#">Generar Resultados</a>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td><!--exporta documento a pdf (deshabilitado)-->
                                             <a href="#">Exportar</a>
                                         </td>
                                     </tr>
@@ -338,7 +344,7 @@
                                     </span>Equipo
                                 </a>
                             </h4>
-                        </div>
+                        </div><!--muestra jugadores activos-->
                         <div id="collapseTwo" class="panel-collapse collapse in">
                             <div class="panel-body">
                                 <lu class="list-group">
@@ -360,7 +366,7 @@
                                 </lu>
                             </div>
                         </div>
-                    </div>
+                    </div><!--botones de tablero-->
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
@@ -435,6 +441,7 @@
                         </div>
                     </div>
                 </div>*@
+            <!--asignación de valores a los botones del tablero-->
 
             @{
                 var activo = false;
@@ -502,7 +509,7 @@
                     }
                 }
             }
-
+            <!--registra partida del jugador activo-->
             <div class="form-group">
                 <div class="row">
                     @foreach (var partida in Model.JugadorModel)
@@ -528,6 +535,7 @@
                     }
                 </div>
             </div>
+            <!--tarjetas de reuqerimientos-->
             <div style="margin-top:-700px; float:left; margin-left:88%">
                 <a href="@Url.Action("Muestra", "Edicion")"><div class="edit"></div></a>
             </div>

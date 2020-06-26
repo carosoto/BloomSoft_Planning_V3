@@ -3,11 +3,15 @@
     ViewBag.Title = "Enviar";
 }
 
+<!--enviar codigo de confirmación por correo al momento de registrarse |DESHABILITADO|-->
+
 <h2>@ViewBag.Title.</h2>
 
-@using (Html.BeginForm("SendCode", "Account", new { ReturnUrl = Model.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" })) {
+@using (Html.BeginForm("SendCode", "Account", new { ReturnUrl = Model.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
     @Html.AntiForgeryToken()
     @Html.Hidden("rememberMe", @Model.RememberMe)
+    <a href="~/Views/Account/SendCode.cshtml">~/Views/Account/SendCode.cshtml</a>
     <h4>Enviar código de verificación</h4>
     <hr />
     <div class="row">

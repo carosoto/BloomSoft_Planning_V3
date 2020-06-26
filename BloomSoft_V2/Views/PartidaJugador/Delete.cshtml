@@ -5,7 +5,7 @@
 }
 
 <h2>Delete</h2>
-
+<!--formato para borrar los valores de la tabla PartidaJugador-->
 <h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>PartidaJugador</h4>
@@ -37,7 +37,8 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

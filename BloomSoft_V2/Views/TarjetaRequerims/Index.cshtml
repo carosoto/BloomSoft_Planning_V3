@@ -5,7 +5,7 @@
 }
 
 <h2>Cartas asignadas</h2>
-
+<!--formato para mostrar los valores de la tabla TarjetaRequerim-->
 <table class="table">
     <tr>
         <th>
@@ -26,28 +26,29 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.PartidaJugador.id_usuario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Taxonomia.categoria)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tiempo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dificultad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.puntos)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id_tarjetaRequerim })
-            
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartidaJugador.id_usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Taxonomia.categoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tiempo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dificultad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.puntos)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id_tarjetaRequerim })
+
+            </td>
+        </tr>
+    }
 
 </table>

@@ -5,6 +5,8 @@
 
 <h2>@ViewBag.Title.</h2>
 
+<!--Verificar número de teléfono |DESHABILITADO|-->
+
 @using (Html.BeginForm("VerifyPhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()

@@ -5,7 +5,7 @@
 }
 
 <!DOCTYPE html>
-
+<!--formato para eliminar participantes del juego-->
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -20,32 +20,33 @@
             <dt>
                 @Html.DisplayNameFor(model => model.AspNetUsers.Email)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.AspNetUsers.Email)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Proyecto.nombre)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Proyecto.nombre)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.tipo)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.tipo)
             </dd>
-    
+
         </dl>
-    
-        @using (Html.BeginForm()) {
+
+        @using (Html.BeginForm())
+        {
             @Html.AntiForgeryToken()
-    
+
             <div class="form-actions no-color">
                 <input type="submit" value="Delete" class="btn btn-default" /> |
                 @Html.ActionLink("Back to List", "Index")

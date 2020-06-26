@@ -48,7 +48,7 @@
         })
 
     </script>
-
+    <!--menu principal-->
     <div class="container">
         <div class="row">
             <div class="col-sm-3 col-md-3">
@@ -66,17 +66,17 @@
                             <div class="panel-body">
                                 <table class="table">
                                     <tr>
-                                        <td>
+                                        <td><!--crear pryecto-->
                                             <span class="glyphicon glyphicon-pencil text-primary"></span><a href="@Url.Action("Create", "Proyecto")">Nuevo Proyecto</a>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td><!--crear juego-->
                                             <span class="glyphicon glyphicon-file text-info"></span><a href="@Url.Action("GameBoard", "Home")">Nuevo Juego</a>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td><!--unirse a un juego ya creado con el id de partidaJuego-->
                                             <span class="glyphicon glyphicon-plus text-warning"></span><a href="#" data-toggle="modal" data-target="#exampleModal">Unirse a juego</a>
 
                                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
@@ -115,7 +115,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td><!--continuar una partida ya creada-->
                                             <span class="glyphicon glyphicon-flash text-success"></span><a href="@Url.Action("GameBoard", "Home")">Continuar Juego</a>
                                         </td>
                                     </tr>
@@ -188,7 +188,7 @@
                             <div class="panel-body">
                                 <table class="table">
                                     <tr>
-                                        <td>
+                                        <td><!--pagina premium-->
                                             <span class="glyphicon glyphicon-usd"></span><a onclick="location.href='@Url.Action("Premium","Home")'">Prueba BloomSoft Premium</a>
                                         </td>
                                     </tr>
@@ -206,7 +206,7 @@
                     </h1>
                 </div>
                 <div class="row">
-                    <div>
+                    <div><!--Estadisticas-->
                         <h3>Mis proyectos</h3>
                         <select id="idProyecto">
                             @foreach (var itProyecto in Model)
